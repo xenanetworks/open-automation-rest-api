@@ -1,0 +1,17 @@
+title: BackToBackTest
+type: object
+properties:
+  test_type:
+    $ref: './TestType.yaml'
+  enabled:
+    title: Enabled
+    type: boolean
+  common_options:
+    $ref: './CommonOptions.yaml'
+  rate_sweep_options:
+    $ref: './RateSweepOptions.yaml'
+required:
+  - test_type
+  - enabled
+  - common_options
+  - rate_sweep_options

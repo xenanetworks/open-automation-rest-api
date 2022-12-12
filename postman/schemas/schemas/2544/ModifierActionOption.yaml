@@ -1,0 +1,6 @@
+title: ModifierActionOption
+description: Modifier action enums
+enum:
+    - increment
+    - decrement
+    - random

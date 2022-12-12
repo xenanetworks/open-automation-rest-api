@@ -5,11 +5,87 @@ id = 8ea538ce-04e4-4808-9624-94e057ca76cc
 
 [relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"6625866-4ed4621c-45fc-4a78-927f-816ad4d4c9ad","path":"XOA API (ANLT) v0.1 Examples.json","metaData":{}}
 
 [relations.collections.metaData]
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
+files[] = {"path":"index.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/AcceptableLossType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/BackToBackTest.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/BinarySearchType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/BRRModeStr.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/CommonOptions.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/DurationType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/DurationUnit.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FECModeStr.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FlowCreationType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FrameLossRateTest.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FrameSizeConfiguration.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FrameSizesOptions.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/FrameSizeType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/IPV4AddressProperties.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/IPV6AddressProperties.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/IPVersion.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/LatencyModeStr.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/LatencyTest.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/MACLearningMode.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/MdiMdixMode.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/Modifier.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/ModifierActionOption.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/MultiStreamConfig.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/OuterLoopMode.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PayloadTypeStr.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PluginModel2544.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PortConfiguration.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PortGroup.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PortRateCapProfile.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PortRateCapUnit.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/PortSpeedStr.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/ProtocolSegment.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/ProtocolSegmentProfileConfig.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/RateIterationOptions.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/RateResultScopeType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/RateSweepOptions.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/SegmentField.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/SegmentType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TestConfiguration.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TestTopology.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TestType.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TestTypesConfiguration.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/ThroughputTest.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TidAllocationScope.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TogglePortSyncConfig.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/TrafficDirection.yaml","metaData":{}}
+files[] = {"path":"schemas/2544/ValueRange.yaml","metaData":{}}
+files[] = {"path":"schemas/2544TestConfig.yaml","metaData":{}}
+files[] = {"path":"schemas/_index.yaml","metaData":{}}
+files[] = {"path":"schemas/anlt/PluginModelANLT.yaml","metaData":{}}
+files[] = {"path":"schemas/ANLTTestConfig.yaml","metaData":{}}
+files[] = {"path":"schemas/APIVersion.yaml","metaData":{}}
+files[] = {"path":"schemas/ModuleId.yaml","metaData":{}}
+files[] = {"path":"schemas/ModuleList.yaml","metaData":{}}
+files[] = {"path":"schemas/ModuleObject.yaml","metaData":{}}
+files[] = {"path":"schemas/NodeId.yaml","metaData":{}}
+files[] = {"path":"schemas/NodeInfo.yaml","metaData":{}}
+files[] = {"path":"schemas/PongInfo.yaml","metaData":{}}
+files[] = {"path":"schemas/PortId.yaml","metaData":{}}
+files[] = {"path":"schemas/PortIdentity.yaml","metaData":{}}
+files[] = {"path":"schemas/PortList.yaml","metaData":{}}
+files[] = {"path":"schemas/PortObject.yaml","metaData":{}}
+files[] = {"path":"schemas/ProductType.yaml","metaData":{}}
+files[] = {"path":"schemas/SenderId.yaml","metaData":{}}
+files[] = {"path":"schemas/ServiceType.yaml","metaData":{}}
+files[] = {"path":"schemas/SpeedMode.yaml","metaData":{}}
+files[] = {"path":"schemas/SubscriptionInfo.yaml","metaData":{}}
+files[] = {"path":"schemas/TestConfiguration.yaml","metaData":{}}
+files[] = {"path":"schemas/TesterId.yaml","metaData":{}}
+files[] = {"path":"schemas/TesterList.yaml","metaData":{}}
+files[] = {"path":"schemas/TesterLoginCredential.yaml","metaData":{}}
+files[] = {"path":"schemas/TesterObject.yaml","metaData":{}}
+files[] = {"path":"schemas/TestId.yaml","metaData":{}}
+files[] = {"path":"schemas/WorkerId.yaml","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3

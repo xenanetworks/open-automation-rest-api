@@ -1,0 +1,10 @@
+type: object
+properties:
+  tester_id:
+    $ref: './TesterId.yaml'
+  tester_index:
+    type: integer
+  module:index:
+    type: integer
+  port_index:
+    type: integer

@@ -1,0 +1,42 @@
+title: FrameLossRateTest
+type: object
+properties:
+  test_type:
+    $ref: './TestType.yaml'
+  enabled:
+    title: Enabled
+    type: boolean
+  common_options:
+    $ref: './CommonOptions.yaml'
+  rate_sweep_options:
+    $ref: './RateSweepOptions.yaml'
+  use_gap_monitor:
+    title: Use Gap Monitor
+    type: boolean
+  gap_monitor_start_microsec:
+    title: Gap Monitor Start Microsec
+    minimum: 0
+    type: integer
+  gap_monitor_stop_frames:
+    title: Gap Monitor Stop Frames
+    minimum: 0
+    type: integer
+  use_pass_fail_criteria:
+    title: Use Pass Fail Criteria
+    type: boolean
+  acceptable_loss_pct:
+    title: Acceptable Loss Pct
+    type: number
+  acceptable_loss_type:
+    $ref: './AcceptableLossType.yaml'
+required:
+  - test_type
+  - enabled
+  - common_options
+  - rate_sweep_options
+  - use_gap_monitor
+  - gap_monitor_start_microsec
+  - gap_monitor_stop_frames
+  - use_pass_fail_criteria
+  - acceptable_loss_pct
+  - acceptable_loss_type

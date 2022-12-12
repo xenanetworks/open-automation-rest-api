@@ -1,0 +1,7 @@
+title: LatencyModeStr
+description: Latency mode string enums
+enum:
+    - first_to_last
+    - last_to_last
+    - first_to_first
+    - last_to_first

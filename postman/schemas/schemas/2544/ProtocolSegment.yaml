@@ -1,0 +1,16 @@
+title: ProtocolSegment
+type: object
+properties:
+  segment_type:
+    $ref: './SegmentType.yaml'
+  fields:
+    title: Fields
+    type: array
+    items:
+      $ref: './SegmentField.yaml'
+  checksum_offset:
+    title: Checksum Offset
+    type: integer
+required:
+  - segment_type
+  - fields

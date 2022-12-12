@@ -1,0 +1,19 @@
+title: CommonOptions
+type: object
+properties:
+  duration_type:
+    $ref: './DurationType.yaml'
+  duration:
+    title: Duration
+    type: number
+  duration_unit:
+    $ref: './DurationUnit.yaml'
+  iterations:
+    title: Iterations
+    minimum: 0
+    type: integer
+required:
+  - duration_type
+  - duration
+  - duration_unit
+  - iterations

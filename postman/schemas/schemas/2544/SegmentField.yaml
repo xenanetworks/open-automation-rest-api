@@ -1,0 +1,20 @@
+title: SegmentField
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+  value:
+    title: Value
+    type: string
+  bit_length:
+    title: Bit Length
+    type: integer
+  hw_modifier:
+    $ref: './Modifier.yaml'
+  value_range:
+    $ref: './ValueRange.yaml'
+required:
+  - name
+  - value
+  - bit_length

@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    $ref: './ModuleId.yaml'
+  index:
+    description: Index of the module
+    type: integer
+  model:
+    description: Module's model
+    type: string
+  reserved_by:
+    description: Module's reservation ownership
+    type: string
+  ports:
+    description: Module's ports
+    type: array
+    items:
+      $ref: './PortObject.yaml'
+  name:
+    description: Name of the module
+    type: string
+  can_media_config:
+    description: Does the module supports media configuration?
+    type: boolean
+  is_chimera:
+    description: Is it a Chimera module
+    type: boolean
+  can_local_time_adjust:
+    description: Does the module support local time adjustment?
+    type: boolean
+  max_clock_ppm:
+    description: Maximum ppm allowed for clock adjustment
+    type: integer

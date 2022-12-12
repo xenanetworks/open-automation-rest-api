@@ -1,0 +1,7 @@
+
+description: API version haha
+type: string
+default: 'v1'
+enum:
+    - 'v1'
+example: 'v1'

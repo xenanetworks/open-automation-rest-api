@@ -1,0 +1,5 @@
+title: DurationType
+description: Test duration type enums
+enum:
+    - time
+    - frames

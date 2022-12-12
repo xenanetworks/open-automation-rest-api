@@ -1,0 +1,50 @@
+APIVersion:
+  $ref: "./APIVersion.yaml"
+NodeId:
+  $ref: "./NodeId.yaml"
+WorkerId:
+  $ref: "./WorkerId.yaml"
+SenderId:
+  $ref: "./SenderId.yaml"
+TesterId:
+  $ref: "./TesterId.yaml"
+ModuleId:
+  $ref: "./ModuleId.yaml"
+PortId:
+  $ref: "./PortId.yaml"
+TestId:
+  $ref: "./TestId.yaml"
+NodeInfo:
+  $ref: "./NodeInfoObj.yaml"
+PongInfo:
+  $ref: "./PongInfoObj.yaml"
+ProductType:
+  $ref: "./ProductType.yaml"
+TesterLoginCredential:
+  $ref: "./TesterLoginCredential.yaml"
+ServiceType:
+  $ref: "./ServiceType.yaml"
+SubscriptionInfo:
+  $ref: "./SubscriptionInfo.yaml"
+TesterObject:
+  $ref: "./TesterObject.yaml"
+ModuleObject:
+  $ref: "./ModuleObject.yaml"
+PortObject:
+  $ref: "./PortObject.yaml"
+SpeedModeObject:
+  $ref: "./SpeedModeObject.yaml"
+PortList:
+  $ref: "./PortList.yaml"
+ModuleList:
+  $ref: "./ModuleList.yaml"
+TesterList:
+  $ref: "./TesterList.yaml"
+PortIdentityObject:
+  $ref: "./PortIdentityObject.yaml"
+TestConfiguration:
+  $ref: "./TestConfiguration.yaml"
+2544TestConfig:
+  $ref: "./2544TestConfig.yaml"
+PortANLTTestConfigIdentityObject:
+  $ref: "./ANLTTestConfig.yaml"

@@ -1,0 +1,13 @@
+type: object
+properties:
+  worker_id:
+    $ref: './WorkerId.yaml'
+  sender_id:
+    $ref: './SenderId.yaml'
+  service_name:
+    $ref: './ServiceType.yaml'
+  destination:
+    description: The URL of the endpoint to receive the push messages
+    type: string
+    format: url
+    example: 'https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp'

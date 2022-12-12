@@ -1,0 +1,5 @@
+title: AcceptableLossType
+description: Acceptable loss type enums
+enum:
+    - percent
+    - frames

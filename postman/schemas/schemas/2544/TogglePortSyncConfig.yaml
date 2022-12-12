@@ -1,0 +1,18 @@
+title: TogglePortSyncConfig
+type: object
+properties:
+  toggle_port_sync:
+    title: Toggle Port Sync
+    type: boolean
+  sync_off_duration_second:
+    title: Sync Off Duration Second
+    minimum: 0
+    type: integer
+  delay_after_sync_on_second:
+    title: Delay After Sync On Second
+    minimum: 0
+    type: integer
+required:
+  - toggle_port_sync
+  - sync_off_duration_second
+  - delay_after_sync_on_second

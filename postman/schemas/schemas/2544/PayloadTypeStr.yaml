@@ -1,0 +1,6 @@
+title: PayloadTypeStr
+description: Payload type enums
+enum:
+    - incrementing
+    - pattern
+    - prbs

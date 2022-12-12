@@ -1,0 +1,6 @@
+title: TidAllocationScope
+description: An enumeration.
+enum:
+    - config_scope
+    - port_scope
+    - source_port_id

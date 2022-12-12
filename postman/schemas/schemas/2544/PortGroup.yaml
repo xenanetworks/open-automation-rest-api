@@ -1,0 +1,6 @@
+title: PortGroup
+description: Port group enums
+enum:
+    - east
+    - west
+    - undefined

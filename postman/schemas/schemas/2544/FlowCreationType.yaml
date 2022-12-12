@@ -1,0 +1,5 @@
+title: FlowCreationType
+description: Flow creation type enum
+enum:
+    - stream_based
+    - modifier_based

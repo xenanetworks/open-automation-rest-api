@@ -1,0 +1,88 @@
+title: PortConfiguration
+type: object
+properties:
+  port_slot:
+    title: Port Slot
+    type: string
+  peer_config_slot:
+    title: Peer Config Slot
+    type: string
+  port_group:
+    $ref: './PortGroup.yaml'
+  port_speed_mode:
+    $ref: './PortSpeedStr.yaml'
+  auto_neg_enabled:
+    title: Auto Neg Enabled
+    type: boolean
+  anlt_enabled:
+    title: Anlt Enabled
+    type: boolean
+  mdi_mdix_mode:
+    $ref: './MdiMdixMode'
+  broadr_reach_mode:
+    $ref: './BRRModeStr.yaml'
+  port_rate_cap_value:
+    title: Port Rate Cap Value
+    type: number
+  port_rate_cap_profile:
+    $ref: './PortRateCapProfile.yaml'
+  port_rate_cap_unit:
+    $ref: './PortRateCapUnit.yaml'
+  inter_frame_gap:
+    title: Inter Frame Gap
+    type: number
+  speed_reduction_ppm:
+    title: Speed Reduction Ppm
+    minimum: 0
+    type: integer
+  pause_mode_enabled:
+    title: Pause Mode Enabled
+    type: boolean
+  latency_offset_ms:
+    title: Latency Offset Ms
+    type: integer
+  fec_mode:
+    $ref: './FECModeStr.yaml'
+  profile_id:
+    title: Profile Id
+    type: string
+  ip_gateway_mac_address:
+    title: Ip Gateway Mac Address
+    type: string
+  reply_arp_requests:
+    title: Reply Arp Requests
+    type: boolean
+  reply_ping_requests:
+    title: Reply Ping Requests
+    type: boolean
+  remote_loop_mac_address:
+    title: Remote Loop Mac Address
+    type: string
+  ipv4_properties:
+    $ref: './IPV4AddressProperties.yaml'
+  ipv6_properties:
+    $ref: './IPV6AddressProperties.yaml'
+required:
+  - port_slot
+  - peer_config_slot
+  - port_group
+  - port_speed_mode
+  - auto_neg_enabled
+  - anlt_enabled
+  - mdi_mdix_mode
+  - broadr_reach_mode
+  - port_rate_cap_value
+  - port_rate_cap_profile
+  - port_rate_cap_unit
+  - inter_frame_gap
+  - speed_reduction_ppm
+  - pause_mode_enabled
+  - latency_offset_ms
+  - fec_mode
+  - profile_id
+  - ip_gateway_mac_address
+  - reply_arp_requests
+  - reply_ping_requests
+  - remote_loop_mac_address
+  - ipv4_properties
+  - ipv6_properties

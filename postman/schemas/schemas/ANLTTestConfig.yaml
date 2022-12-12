@@ -1,0 +1,26 @@
+type: object
+properties:
+  username:
+    title: Username
+    type: string
+    example: 'OpenAutomation'
+  test_name:
+    description: Name of the test that this confiugration is for.
+    type: string
+    example: 'ANLT'
+  port_identities:
+    $ref: './PortIdentity.yaml'
+  destination:
+    description: The URL of the endpoint for the Worker to send statistics, alerts, notifications, etc.
+    type: string
+    format: url
+    example: 'https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp'
+  config:
+    $ref: './anlt/PluginModelANLT.yaml'
+required:
+  - username
+  - test_name
+  - port_identities
+  - config
+
+      

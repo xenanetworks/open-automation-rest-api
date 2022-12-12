@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "060b921a-9add-4616-90f4-ffed391f223e",
+		"_postman_id": "4ed4621c-45fc-4a78-927f-816ad4d4c9ad",
 		"name": "XOA API (ANLT) v0.1 Examples",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "6625866-060b921a-9add-4616-90f4-ffed391f223e"
+		"_uid": "6625866-4ed4621c-45fc-4a78-927f-816ad4d4c9ad"
 	},
 	"item": [
 		{
-			"name": "Node Info",
-			"id": "feb040e5-121c-4c4f-8f60-3d5ace92db5e",
+			"name": "Worker Info",
+			"id": "424bafe1-d4ae-4ad5-9370-021d385076d4",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -30,7 +30,7 @@
 			},
 			"response": [
 				{
-					"id": "2fc245a3-96c4-47ce-ae88-de2c1f08ab2e",
+					"id": "1142c500-f065-4c96-85f2-9032cdf31ad4",
 					"name": "Worker Info",
 					"originalRequest": {
 						"method": "GET",
@@ -90,8 +90,8 @@
 			]
 		},
 		{
-			"name": "Ping",
-			"id": "c6f292dd-a369-434e-8fb2-2df4e0dee0d8",
+			"name": "Ping Connectivity",
+			"id": "02e15a5e-e90e-4cd8-977d-de2a8bcf2e37",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -114,8 +114,8 @@
 			},
 			"response": [
 				{
-					"id": "056c1528-a295-4ebb-b7d7-8ff395166e85",
-					"name": "Ping Node",
+					"id": "ccadb548-0cd5-4124-a604-cce4975c99a4",
+					"name": "Ping Connectivity",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -176,7 +176,7 @@
 		},
 		{
 			"name": "Add Tester",
-			"id": "13f2df82-cd85-4d54-8ef4-83e0fd04fa6c",
+			"id": "1609eedb-7127-456a-8803-16d4a273b004",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -208,7 +208,7 @@
 			},
 			"response": [
 				{
-					"id": "64602794-07b7-4780-b8ad-32b72a37a285",
+					"id": "f51e4167-5276-49d8-b537-bb847239eac6",
 					"name": "Add Tester",
 					"originalRequest": {
 						"method": "POST",
@@ -246,7 +246,7 @@
 		},
 		{
 			"name": "Remove Tester",
-			"id": "b90b6471-ae66-442f-9687-5916faa9cd08",
+			"id": "a91fd36d-3a3e-4cb2-ac35-5f0b4e757111",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -270,7 +270,7 @@
 			},
 			"response": [
 				{
-					"id": "5c65c58e-43df-4c8e-9f29-fdac7a470203",
+					"id": "c77d796d-db12-4bff-888c-269185e16ac9",
 					"name": "Remove Tester",
 					"originalRequest": {
 						"method": "DELETE",
@@ -329,7 +329,7 @@
 		},
 		{
 			"name": "List Testers",
-			"id": "1853f66c-9eb8-44c7-b870-b4d8d677ffb5",
+			"id": "ecf4563d-4199-41cb-b3c9-b6ea5d7202a8",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -352,7 +352,7 @@
 			},
 			"response": [
 				{
-					"id": "cb5713e5-7ed3-41df-bc58-cb4b552a29b2",
+					"id": "83626fca-8a07-412b-a566-760724bc083a",
 					"name": "List Testers",
 					"originalRequest": {
 						"method": "GET",
@@ -414,7 +414,7 @@
 		},
 		{
 			"name": "Connect Tester",
-			"id": "98b1af6d-c7fe-4383-9f02-4576aa346312",
+			"id": "ae0d05ee-3c6e-4fa7-9f4e-54ba7c857d43",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true,
 				"strictSSL": false
@@ -443,7 +443,7 @@
 			},
 			"response": [
 				{
-					"id": "a548e4d6-e466-4ad9-a7f8-0257d49039f7",
+					"id": "1c4be3c5-b25d-4ac5-9b92-868e843312da",
 					"name": "Connect to Tester",
 					"originalRequest": {
 						"method": "POST",
@@ -507,7 +507,7 @@
 		},
 		{
 			"name": "Disconnect Tester",
-			"id": "05e4500d-d284-4c09-90b1-afd3e6c16b8f",
+			"id": "ae49fd67-c9fb-401a-8c9c-a04187fcba5e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -531,7 +531,7 @@
 			},
 			"response": [
 				{
-					"id": "117bc657-ed06-4d9c-b121-d74650a53d39",
+					"id": "d2a5fb7c-ec41-424f-a1bf-385c6e48c53f",
 					"name": "Disconnect from Tester",
 					"originalRequest": {
 						"method": "DELETE",
@@ -590,8 +590,8 @@
 			]
 		},
 		{
-			"name": "Start Test (ANLT HelloWorld)",
-			"id": "c3e38d45-02a7-4615-aaea-ab4fa6613da0",
+			"name": "Start ANLT Test (HelloWorld)",
+			"id": "47fc9cba-ce08-4f77-a49e-deec04681cbc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true,
 				"strictSSL": false
@@ -623,8 +623,8 @@
 			},
 			"response": [
 				{
-					"id": "889f19e6-5d5d-4207-941d-e93efa896bbe",
-					"name": "Start Test (ANLT HelloWorld)",
+					"id": "25f25c0d-32bd-4f73-aac6-828e884adfd0",
+					"name": "Start ANLT Test (HelloWorld)",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -690,7 +690,7 @@
 		},
 		{
 			"name": "Stop Test",
-			"id": "7ea38877-fe98-4ed6-8bb5-2906c4750e54",
+			"id": "ffd2299e-68c6-47b7-8d7b-7a6c58f3efe0",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -714,7 +714,7 @@
 			},
 			"response": [
 				{
-					"id": "a93d0386-c79f-44ec-b60d-c0e64a112da0",
+					"id": "93826326-c0d6-461a-a2a8-61aefebff6e1",
 					"name": "Stop Test",
 					"originalRequest": {
 						"method": "DELETE",
@@ -773,7 +773,7 @@
 		},
 		{
 			"name": "Subscribe to Alerts",
-			"id": "40f69c8b-f88d-4579-988a-7be22d8893d7",
+			"id": "05736dd9-b9d3-49be-a55f-ffc401d1f0f1",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -806,7 +806,7 @@
 			},
 			"response": [
 				{
-					"id": "2ba56c0f-c495-4444-be88-f516ab0c7f4a",
+					"id": "447603c1-58f5-45e5-9709-502080a71679",
 					"name": "Subscribe to Alerts",
 					"originalRequest": {
 						"method": "POST",
@@ -874,7 +874,7 @@
 		},
 		{
 			"name": "Subscribe to Resource Status",
-			"id": "c2f58b6b-ac3a-494c-abc5-6aec2f867252",
+			"id": "7259af97-67ff-4a0a-8837-a068b1033e02",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"disableBodyPruning": true
@@ -907,7 +907,7 @@
 			},
 			"response": [
 				{
-					"id": "7b718287-524f-4c54-8492-716870ffbec6",
+					"id": "0d571c5a-472f-493f-bd30-11225141d557",
 					"name": "Subscribe Resources",
 					"originalRequest": {
 						"method": "POST",
@@ -975,7 +975,7 @@
 		},
 		{
 			"name": "Unsubscribe",
-			"id": "785d81e9-7090-45b3-a7b0-31476a869633",
+			"id": "39a18c0e-aac6-4273-9de6-cb60cb8ab39c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},

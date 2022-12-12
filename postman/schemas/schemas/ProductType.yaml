@@ -1,0 +1,4 @@
+description: Product type of the tester
+type: integer
+minimum: 1
+maximum: 5

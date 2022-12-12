@@ -1,0 +1,10 @@
+title: FrameSizeType
+description: Frame size type enums
+enum:
+    - ietf_default
+    - custom_sizes
+    - specified
+    - incrementing
+    - butterfly
+    - random
+    - mixe_sizes

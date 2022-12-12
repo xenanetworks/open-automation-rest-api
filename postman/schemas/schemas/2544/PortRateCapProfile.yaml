@@ -1,0 +1,5 @@
+title: PortRateCapProfile
+description: Port rate cap profile enums
+enum:
+    - physical_port_rate
+    - custom_rate_cap

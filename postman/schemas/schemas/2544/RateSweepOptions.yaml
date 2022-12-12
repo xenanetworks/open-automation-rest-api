@@ -1,0 +1,21 @@
+title: RateSweepOptions
+description: Rate sweep options
+type: object
+properties:
+  start_value_pct:
+    title: Start Value Pct
+    type: number
+  end_value_pct:
+    title: End Value Pct
+    type: number
+  step_value_pct:
+    title: Step Value Pct
+    type: number
+  burst_resolution:
+    title: Burst Resolution
+    default: 0
+    type: number
+required:
+  - start_value_pct
+  - end_value_pct
+  - step_value_pct

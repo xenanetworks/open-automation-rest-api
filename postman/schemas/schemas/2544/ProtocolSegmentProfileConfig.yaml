@@ -1,0 +1,9 @@
+title: ProtocolSegmentProfileConfig
+type: object
+properties:
+  header_segments:
+    title: Header Segments
+    default: []
+    type: array
+    items:
+      $ref: './ProtocolSegment.yaml'

@@ -1,0 +1,11 @@
+type: object
+required:
+  - nid
+  - name
+properties:
+  nid:
+    $ref: './NodeId.yaml'
+  name:
+    description: The name of the XOA Node
+    type: string
+    example: 'XOA Node'

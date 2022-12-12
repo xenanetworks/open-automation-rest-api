@@ -1,0 +1,5 @@
+title: IPVersion
+description: IP version enums
+enum:
+    - 4
+    - 6

@@ -1,0 +1,5 @@
+title: OuterLoopMode
+description: Loop mode enums
+enum:
+    - iterations
+    - packet_size

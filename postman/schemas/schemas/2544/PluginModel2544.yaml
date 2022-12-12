@@ -1,0 +1,22 @@
+title: PluginModel2544
+type: object
+properties:
+  test_configuration:
+    $ref: './TestConfiguration.yaml'
+  protocol_segments:
+    title: Protocol Segments
+    type: object
+    additionalProperties:
+      $ref: './ProtocolSegmentProfileConfig.yaml'
+  ports_configuration:
+    title: Ports Configuration
+    type: object
+    additionalProperties:
+      $ref: './PortConfiguration.yaml'
+  test_types_configuration:
+    $ref: './TestTypesConfiguration.yaml'
+required:
+  - test_configuration
+  - protocol_segments
+  - ports_configuration
+  - test_types_configuration

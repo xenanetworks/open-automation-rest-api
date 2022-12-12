@@ -1,0 +1,7 @@
+title: TestType
+description: Type of test case enums
+enum:
+    - throughput
+    - latency
+    - loss
+    - back_to_back

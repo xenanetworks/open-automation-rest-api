@@ -1,0 +1,4 @@
+description: The unique identifier of a XOA Worker
+type: string
+format: uuid
+example: '687a4224-1a6b-4144-bb17-ee73d37298c0'
