@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: '0.1.0'
+  version: '0.3.0'
   title: 'Xena OpenAutomation REST API'
   description: XOA REST API for test suite integration with third-party test automation framework
 
@@ -17,10 +17,10 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     get:
-      summary: Get node information
+      summary: Get Worker Info
       responses:
         '200':
-          description: 'OK'
+          description: Worker Info Fetched
           content:
             application/json:
               schema:
@@ -35,14 +35,15 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     get:
-      summary: Ping the node
+      summary: Ping Worker
       responses:
         '200':
-          description: Pong from the node
+          description: Worker Responded
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PongInfo'
+
   /api/{{api_version}}/testers:
     parameters:
       - name: api_version
@@ -52,16 +53,16 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     get:
-      summary: List testers
+      summary: List Testers
       responses:
         '200':
-          description: OK
+          description: Tester List Returned
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TesterList'
     post:
-      summary: Add tester
+      summary: Add Tester
       responses:
         '201':
           description: Tester Added
@@ -77,6 +78,7 @@ paths:
                   $ref: '#/components/schemas/TesterId'
         '422':
           description: Bad tester info
+
   /api/{{api_version}}/testers/{{tester_id}}:
     parameters:
       - name: api_version
@@ -92,10 +94,11 @@ paths:
         schema:
           $ref: '#/components/schemas/TesterId'
     delete:
-      summary: Remove tester
+      summary: Remove Tester
       responses:
         '200':
-          description: OK
+          description: Tester Removed
+
   /api/{{api_version}}/testers/{{tester_id}}/control:
     parameters:
       - name: api_version
@@ -111,25 +114,16 @@ paths:
         schema:
           $ref: '#/components/schemas/TesterId'
     post:
-      summary: Connect to an added tester
+      summary: Connect Tester
       responses:
         '200':
-          description: Connection OK
+          description: Tester Connected
     delete:
-      summary: Disconnect a tester
+      summary: Disconnect Tester
       responses:
         '200':
-          description: Disconnection OK
-    patch:
-      summary: Configure a tester
-      responses:
-        '200':
-          description: 'Successfully configured the tester'
-      requestBody:
-        content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TesterObject'
+          description: Tester Disconnected
+
   /api/{{api_version}}/test:
     parameters:
       - name: api_version
@@ -139,10 +133,10 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     post:
-      summary: Start test
+      summary: Start Test
       responses:
         '200':
-          description: Test is started
+          description: Test Started
           content:
             application/json:
               schema:
@@ -152,16 +146,32 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/TestConfiguration'
+
+  /api/{{api_version}}/test/{{test_id}}:
+    parameters:
+      - name: api_version
+        description: API version
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/APIVersion'
+      - name: test_id
+        description: Test execution id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TestId'
     delete:
-      summary: Stop test
+      summary: Stop Test
       responses:
         '200':
-          description: Test is stopped
+          description: Test Stopped
     patch:
-      summary: Pause test
+      summary: Toggle Pause Test
       responses:
         '200':
-          description: Test is paused
+          description: Test Paused/Resumed
+          
   /api/{{api_version}}/subscribe/resources:
     parameters:
       - name: api_version
@@ -171,10 +181,12 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     post:
-      summary: Subscribe to Test Resource Status
+      summary: Subscribe to Service
       responses:
         '201':
-          description: Successfully subscribed to test resource status change
+          description: Subscription Created
+        '202':
+          description: Duplicated Subscription
       requestBody:
         content:
               application/json:

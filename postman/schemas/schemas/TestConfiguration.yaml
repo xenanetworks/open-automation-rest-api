@@ -15,7 +15,9 @@ properties:
       - RFC-3918
       - ANLT
   port_identities:
-    $ref: './PortIdentity.yaml'
+    type: array
+    items:
+      $ref: './PortIdentity.yaml'
   destination:
     description: The URL of the endpoint for the Worker to send statistics, alerts, notifications, etc.
     type: string

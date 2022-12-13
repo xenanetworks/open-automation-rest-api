@@ -1,0 +1,1550 @@
+{
+	"info": {
+		"_postman_id": "0be4fa64-cb39-4e68-b94a-93de2d347e8a",
+		"name": "XOA API Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "6625866-0be4fa64-cb39-4e68-b94a-93de2d347e8a"
+	},
+	"item": [
+		{
+			"name": "Test Resource API",
+			"item": [
+				{
+					"name": "Add Tester",
+					"id": "dd9d789d-e59c-4b5a-8ae8-096ec03c02be",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": 1,\n    \"host\": \"87.61.110.114\",\n    \"password\": \"xena\",\n    \"port\": 22606\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8593bb7a-f7d4-4505-8d3a-d4b3d134e17d",
+							"name": "Tester Added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": 1,\n    \"host\": \"87.61.110.114\",\n    \"password\": \"xena\",\n    \"port\": 22606\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers"
+									]
+								}
+							},
+							"status": "Tester Added.",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 20:47:50 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "72b8307d-9352-4d9d-b934-a763e7c64666",
+							"name": "Tester Already Added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": 1,\n    \"host\": \"87.61.110.114\",\n    \"password\": \"xena\",\n    \"port\": 22606\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers"
+									]
+								}
+							},
+							"status": "Tester is already registered.",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 20:48:09 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "List Testers",
+					"id": "46d0107a-acf7-4eff-8829-bcdf3fde05fd",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3f4f8701-b2c0-4933-99f0-395dd40cbf29",
+							"name": "List Testers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/testers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 10:07:58 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Etag",
+									"value": "\"aeed2061af4bf031be655d7703342ab78ea58309\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "49147"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"598e592ceb28ce73b95d270a1b028ff3\": {\n        \"id\": \"598e592ceb28ce73b95d270a1b028ff3\",\n        \"product\": 1,\n        \"host\": \"87.61.110.114\",\n        \"port\": 22606,\n        \"password\": \"**********\",\n        \"name\": \"L23 Live Demo\",\n        \"reserved_by\": \"\",\n        \"is_connected\": true,\n        \"modules\": [\n            {\n                \"id\": 0,\n                \"model\": \"M6RJ45T1\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 3,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"T1 100/1000M [Dual] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            7\n                        ],\n                        \"speed_mode_current\": 3,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P-T1-RJ45\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 1,\n                \"model\": \"M6RJ45N\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"leonard\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"leonard\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"10GBASE-T [Quint] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            2,\n                            3,\n                            12,\n                            13,\n                            10,\n                            14,\n                            4\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": 0\n                    }\n                ],\n                \"name\": \"Odin-10G-5S-6P-CU\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 2,\n                \"model\": \"M6SFP+[b]\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"AndersRasmussen\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"garrett\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"AndersRasmussen\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-10G-1S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 3,\n                \"model\": \"M2SFP+[c]\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"Mikel\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP+ SR 850 nm\",\n                        \"reserved_by\": \"Mikel\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 10000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 10000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-10G-1S-2P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 4,\n                \"model\": \"M1QSFP28SFP28\",\n                \"reserved_by\": \"Devant\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"QSFP28 100G CR4\",\n                        \"reserved_by\": \"Devant\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 1,\n                        \"max_speed\": 100000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 256,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 48,\n                        \"max_packet_length\": 12288,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": false,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": false,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": true,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [],\n                        \"speed_mode_current\": 255,\n                        \"speed_current\": 100000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Loki-100G-5S-1P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 5,\n                \"model\": \"M6SFP[b]\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"ohadm\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"ohadm\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"RAJESH VENKATESH\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": true,\n                        \"can_udp_checksum\": true,\n                        \"can_micro_tpld\": true,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 6,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 7,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 8,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"garrett\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"garrett\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"garrett\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 9,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"garre\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"garre\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 10,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": 0\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"USER\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"USER\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 1,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            },\n            {\n                \"id\": 11,\n                \"model\": \"M6SFP\",\n                \"reserved_by\": \"\",\n                \"ports\": [\n                    {\n                        \"id\": 0,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"garrett\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 1,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 2,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 3,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    },\n                    {\n                        \"id\": 5,\n                        \"model\": \"SFP-E 10/100/1000M [Triple] [Auto]\",\n                        \"reserved_by\": \"\",\n                        \"sync_status\": 0,\n                        \"traffic_state\": 0,\n                        \"max_speed\": 1000,\n                        \"max_speed_reduction\": 1000,\n                        \"min_interframe_gap\": 16,\n                        \"max_interframe_gap\": 63,\n                        \"max_streams_per_port\": 32,\n                        \"packet_limit\": 0,\n                        \"min_packet_length\": 56,\n                        \"max_packet_length\": 16383,\n                        \"max_header_length\": 2048,\n                        \"max_protocol_segments\": 30,\n                        \"max_repeat\": 4096,\n                        \"can_set_autoneg\": true,\n                        \"can_tcp_checksum\": false,\n                        \"can_udp_checksum\": false,\n                        \"can_micro_tpld\": false,\n                        \"can_mdi_mdix\": true,\n                        \"can_sync_traffic_start\": true,\n                        \"can_fec\": false,\n                        \"can_anlt\": 0,\n                        \"is_chimera\": false,\n                        \"can_brr\": false,\n                        \"speed_modes_supported\": [\n                            0,\n                            1,\n                            2,\n                            3,\n                            9,\n                            10,\n                            7,\n                            8\n                        ],\n                        \"speed_mode_current\": 0,\n                        \"speed_current\": 1000,\n                        \"speed_reduction\": null\n                    }\n                ],\n                \"name\": \"Odin-1G-3S-6P\",\n                \"can_media_config\": false,\n                \"is_chimera\": false,\n                \"can_local_time_adjust\": false,\n                \"max_clock_ppm\": 400\n            }\n        ],\n        \"keep_disconnected\": false,\n        \"max_name_len\": 50,\n        \"max_comment_len\": 50,\n        \"max_password_len\": 50\n    }\n}"
+						},
+						{
+							"id": "f7e305db-d242-43cf-b4d9-20cd83c70358",
+							"name": "List Testers (No tester)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 20:47:21 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Etag",
+									"value": "\"b5aeaf478d38352b401de55b240cb5f245189a69\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "Remove Tester",
+					"id": "2c619338-3677-4580-a800-ee24c25500c2",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers/{{TESTER_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers",
+								"{{TESTER_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "81e9a384-a4e5-465f-897b-9d78c7da10b8",
+							"name": "Tester Removed",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/testers/598e592ceb28ce73b95d270a1b028ff3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers",
+										"598e592ceb28ce73b95d270a1b028ff3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 12:15:04 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Connect Tester",
+					"id": "e40bb689-bb8e-4ee6-a982-8ca1ca7c0bf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers/{{TESTER_ID}}/control",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers",
+								"{{TESTER_ID}}",
+								"control"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a0462e24-ef56-4c53-9966-6d5c16b5432b",
+							"name": "Tester Connected",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/testers/598e592ceb28ce73b95d270a1b028ff3/control",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers",
+										"598e592ceb28ce73b95d270a1b028ff3",
+										"control"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 13:42:23 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get Tester Info",
+					"id": "d5aa6e71-a5a5-402b-a159-8e4be65d6401",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers/{{TESTER_ID}}/info",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers",
+								"{{TESTER_ID}}",
+								"info"
+							]
+						},
+						"description": "Get current info of the selected tester"
+					},
+					"response": []
+				},
+				{
+					"name": "Disconnect Tester",
+					"id": "aa7255c3-a3dd-400e-9081-550314d345f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/testers/{{TESTER_ID}}/control",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"testers",
+								"{{TESTER_ID}}",
+								"control"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "444a4d30-7476-4022-aeaa-88c13800da2c",
+							"name": "Tester Disconnected",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/testers/598e592ceb28ce73b95d270a1b028ff3/control",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"testers",
+										"598e592ceb28ce73b95d270a1b028ff3",
+										"control"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 13:42:54 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "9704835d-17f0-4032-8240-945022633960"
+		},
+		{
+			"name": "Test Control API",
+			"item": [
+				{
+					"name": "Start Test (Dummy)",
+					"id": "c22e21f0-122b-4d7f-8a4f-ea3b92ad0a5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"OpenAutomation\",\n    \"test_name\": \"ANLT\",\n    \"destination\": \"https://84c71bf7-a642-4077-8f72-4dad9fd951f3.mock.pstmn.io/temp\",\n    \"port_identities\": {\n        \"p0\": {\n            \"tester_id\": \"598e592ceb28ce73b95d270a1b028ff3\",\n            \"tester_index\": 0,\n            \"module_index\": 1,\n            \"port_index\": 0\n        },\n        \"p1\": {\n            \"tester_id\": \"598e592ceb28ce73b95d270a1b028ff3\",\n            \"tester_index\": 0,\n            \"module_index\": 1,\n            \"port_index\": 1\n        }\n    },\n    \"config\": {\n        \"dummy\": \"Hello World, ANLT! Hello World, ANLT! Hello World, ANLT!\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/test",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0bd66155-70a3-427c-8190-cc52141ded5d",
+							"name": "Test Started",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"OpenAutomation\",\n    \"test_name\": \"ANLT\",\n    \"destination\": \"https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp\",\n    \"port_identities\": {\n        \"p0\": {\n            \"tester_id\": \"598e592ceb28ce73b95d270a1b028ff3\",\n            \"tester_index\": 0,\n            \"module_index\": 1,\n            \"port_index\": 0\n        },\n        \"p1\": {\n            \"tester_id\": \"598e592ceb28ce73b95d270a1b028ff3\",\n            \"tester_index\": 0,\n            \"module_index\": 1,\n            \"port_index\": 1\n        }\n    },\n    \"config\": {\n        \"dummy\": \"Hello World, ANLT!\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/v1/test",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 13:43:56 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "88d683e1-0ee5-482d-869c-62d98800acd1"
+						}
+					]
+				},
+				{
+					"name": "Start Test (RFC2544)",
+					"id": "536e59ce-3c97-40fe-9a9a-4e29bc50a8fd",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"xxxxx\",\n    \"test_name\": \"RFC-2544\",\n    \"destination\": \"https://84c71bf7-a642-4077-8f72-4dad9fd951f3.mock.pstmn.io/temp\",\n    \"port_identities\": [\n        {\n            \"tester_id\": \"66819eb076c5cd6901fa214d0685c8cf\",\n            \"module_index\": 1,\n            \"port_index\": 0\n        },\n        {\n            \"tester_id\": \"66819eb076c5cd6901fa214d0685c8cf\",\n            \"module_index\": 1,\n            \"port_index\": 1\n        }\n    ],\n    \"config\": {\n        \"test_configuration\": {\n            \"flow_creation_type\": \"stream_based\",\n            \"tid_allocation_scope\": \"config_scope\",\n            \"mac_base_address\": \"04:F4:BC\",\n            \"enable_speed_reduction_sweep\": false,\n            \"use_port_sync_start\": false,\n            \"port_stagger_steps\": 0,\n            \"outer_loop_mode\": \"packet_size\",\n            \"mac_learning_mode\": \"every_trial\",\n            \"mac_learning_frame_count\": 1,\n            \"toggle_port_sync_config\": {\n                \"toggle_port_sync\": true,\n                \"sync_off_duration_second\": 1,\n                \"delay_after_sync_on_second\": 1\n            },\n            \"learning_rate_pct\": 1.0,\n            \"learning_duration_second\": 5000.0,\n            \"use_flow_based_learning_preamble\": false,\n            \"flow_based_learning_frame_count\": 1,\n            \"delay_after_flow_based_learning_ms\": 500,\n            \"arp_refresh_enabled\": true,\n            \"arp_refresh_period_second\": 4000.0,\n            \"use_gateway_mac_as_dmac\": true,\n            \"should_stop_on_los\": true,\n            \"delay_after_port_reset_second\": 5,\n            \"topology\": \"MESH\",\n            \"direction\": \"bidirectional\",\n            \"frame_sizes\": {\n                \"packet_size_type\": \"custom_sizes\",\n                \"custom_packet_sizes\": [\n                    512.0\n                ],\n                \"fixed_packet_start_size\": 100,\n                \"fixed_packet_end_size\": 1500,\n                \"fixed_packet_step_size\": 100,\n                \"varying_packet_min_size\": 64,\n                \"varying_packet_max_size\": 1500,\n                \"mixed_length_config\": {\n                    \"field_0\": 56,\n                    \"field_1\": 60,\n                    \"field_14\": 9216,\n                    \"field_15\": 16360\n                },\n                \"mixed_sizes_weights\": [\n                    0,\n                    0,\n                    0,\n                    0,\n                    57,\n                    3,\n                    5,\n                    1,\n                    2,\n                    5,\n                    1,\n                    4,\n                    4,\n                    18,\n                    0,\n                    0\n                ]\n            },\n            \"use_micro_tpld_on_demand\": false,\n            \"payload_type\": \"Incrementing\",\n            \"payload_pattern\": \"000000000000000000000000000000000000\",\n            \"multi_stream_config\": {\n                \"enable_multi_stream\": false,\n                \"per_port_stream_count\": 1,\n                \"multi_stream_address_offset\": 2,\n                \"multi_stream_address_increment\": 1,\n                \"multi_stream_mac_base_address\": \"04:F4:BC\"\n            },\n            \"repeat_test_until_stopped\": false\n        },\n        \"protocol_segments\": {\n            \"70d01fb3-57a2-46fe-9e23-7390b23342e3\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1111111111111111\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    }\n                ]\n            },\n            \"eeac30ef-2ffe-4c9a-8232-adf590d92f30\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1000000100000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"vlan\",\n                        \"fields\": [\n                            {\n                                \"name\": \"PCP\",\n                                \"value\": \"000\",\n                                \"bit_length\": 3,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"CFI/DEI\",\n                                \"value\": \"0\",\n                                \"bit_length\": 1,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"VLAN Tag\",\n                                \"value\": \"000000000000\",\n                                \"bit_length\": 12,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1111111111111111\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    }\n                ]\n            },\n            \"7afa3b70-488b-496c-9ec9-6f8d4e49cde3\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1001000100000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"vlan\",\n                        \"fields\": [\n                            {\n                                \"name\": \"PCP\",\n                                \"value\": \"000\",\n                                \"bit_length\": 3,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"CFI/DEI\",\n                                \"value\": \"0\",\n                                \"bit_length\": 1,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"VLAN Tag\",\n                                \"value\": \"000000000000\",\n                                \"bit_length\": 12,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1000000100000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"vlan\",\n                        \"fields\": [\n                            {\n                                \"name\": \"PCP\",\n                                \"value\": \"000\",\n                                \"bit_length\": 3,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"CFI/DEI\",\n                                \"value\": \"0\",\n                                \"bit_length\": 1,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"VLAN Tag\",\n                                \"value\": \"000000000000\",\n                                \"bit_length\": 12,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1111111111111111\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    }\n                ]\n            },\n            \"fa5228be-67fc-47e5-8348-b4d82d863208\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"0000100000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"ipv4\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Version\",\n                                \"value\": \"0100\",\n                                \"bit_length\": 4,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Header Length\",\n                                \"value\": \"0101\",\n                                \"bit_length\": 4,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"DSCP\",\n                                \"value\": \"000000\",\n                                \"bit_length\": 6,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"ECN\",\n                                \"value\": \"00\",\n                                \"bit_length\": 2,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Total Length\",\n                                \"value\": \"0000000000010100\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Identification\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Flags\",\n                                \"value\": \"000\",\n                                \"bit_length\": 3,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Fragment Offset\",\n                                \"value\": \"0000000000000\",\n                                \"bit_length\": 13,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"TTL\",\n                                \"value\": \"01111111\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Protocol\",\n                                \"value\": \"11111111\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Header Checksum\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src IP Addr\",\n                                \"value\": \"00000000000000000000000000000000\",\n                                \"bit_length\": 32,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Dest IP Addr\",\n                                \"value\": \"00000000000000000000000000000000\",\n                                \"bit_length\": 32,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": 10\n                    }\n                ]\n            },\n            \"427e3a0a-63ac-49ed-8b24-6fbb76df3ca6\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"0000100000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"ipv4\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Version\",\n                                \"value\": \"0100\",\n                                \"bit_length\": 4,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Header Length\",\n                                \"value\": \"0101\",\n                                \"bit_length\": 4,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"DSCP\",\n                                \"value\": \"000000\",\n                                \"bit_length\": 6,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"ECN\",\n                                \"value\": \"00\",\n                                \"bit_length\": 2,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Total Length\",\n                                \"value\": \"0000000000010100\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Identification\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Flags\",\n                                \"value\": \"000\",\n                                \"bit_length\": 3,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Fragment Offset\",\n                                \"value\": \"0000000000000\",\n                                \"bit_length\": 13,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"TTL\",\n                                \"value\": \"01111111\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Protocol\",\n                                \"value\": \"00010001\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Header Checksum\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src IP Addr\",\n                                \"value\": \"00000000000000000000000000000000\",\n                                \"bit_length\": 32,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Dest IP Addr\",\n                                \"value\": \"00000000000000000000000000000000\",\n                                \"bit_length\": 32,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": 10\n                    },\n                    {\n                        \"segment_type\": \"udp\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Src Port\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Dest Port\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Length\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Checksum\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    }\n                ]\n            },\n            \"fd016caf-6b2c-4fc1-ab4c-0a8c89dbf707\": {\n                \"header_segments\": [\n                    {\n                        \"segment_type\": \"ethernet\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Dst MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src MAC addr\",\n                                \"value\": \"000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 48,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"EtherType\",\n                                \"value\": \"1000011011011101\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    },\n                    {\n                        \"segment_type\": \"ipv6\",\n                        \"fields\": [\n                            {\n                                \"name\": \"Version\",\n                                \"value\": \"0110\",\n                                \"bit_length\": 4,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Traffic Class\",\n                                \"value\": \"00000000\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Flow Label\",\n                                \"value\": \"00000000000000000000\",\n                                \"bit_length\": 20,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Payload Length\",\n                                \"value\": \"0000000000000000\",\n                                \"bit_length\": 16,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Next Header\",\n                                \"value\": \"00111011\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Hop Limit\",\n                                \"value\": \"11111111\",\n                                \"bit_length\": 8,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Src IPv6 Addr\",\n                                \"value\": \"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 128,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            },\n                            {\n                                \"name\": \"Dest IPv6 Addr\",\n                                \"value\": \"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n                                \"bit_length\": 128,\n                                \"hw_modifier\": null,\n                                \"value_range\": null\n                            }\n                        ],\n                        \"checksum_offset\": null\n                    }\n                ]\n            }\n        },\n        \"ports_configuration\": {\n            \"c-P-0-1-0\": {\n                \"port_slot\": 0,\n                \"peer_config_slot\": \"\",\n                \"port_group\": \"UNDEFINED\",\n                \"port_speed_mode\": \"AUTO\",\n                \"auto_neg_enabled\": true,\n                \"anlt_enabled\": false,\n                \"mdi_mdix_mode\": \"AUTO\",\n                \"broadr_reach_mode\": \"SLAVE\",\n                \"port_rate_cap_value\": 1000.0,\n                \"port_rate_cap_profile\": \"physical_port_rate\",\n                \"port_rate_cap_unit\": \"1e6_bps\",\n                \"inter_frame_gap\": 20,\n                \"speed_reduction_ppm\": 0,\n                \"pause_mode_enabled\": 0,\n                \"latency_offset_ms\": 0,\n                \"fec_mode\": \"off\",\n                \"profile_id\": \"70d01fb3-57a2-46fe-9e23-7390b23342e3\",\n                \"ip_gateway_mac_address\": \"000000000000\",\n                \"reply_arp_requests\": true,\n                \"reply_ping_requests\": true,\n                \"remote_loop_mac_address\": \"000000000000\",\n                \"ipv4_properties\": {\n                    \"address\": \"0.0.0.0\",\n                    \"routing_prefix\": 24,\n                    \"public_address\": \"0.0.0.0\",\n                    \"public_routing_prefix\": 24,\n                    \"gateway\": \"0.0.0.0\",\n                    \"remote_loop_address\": \"0.0.0.0\",\n                    \"ip_version\": 4\n                },\n                \"ipv6_properties\": {\n                    \"address\": \"::\",\n                    \"routing_prefix\": 64,\n                    \"public_address\": \"::\",\n                    \"public_routing_prefix\": 64,\n                    \"gateway\": \"::\",\n                    \"remote_loop_address\": \"::\",\n                    \"ip_version\": 6\n                },\n                \"port_rate_cap_enabled\": false\n            },\n            \"c-P-0-1-1\": {\n                \"port_slot\": \"p1\",\n                \"peer_config_slot\": \"\",\n                \"port_group\": \"UNDEFINED\",\n                \"port_speed_mode\": \"AUTO\",\n                \"auto_neg_enabled\": true,\n                \"anlt_enabled\": false,\n                \"mdi_mdix_mode\": \"AUTO\",\n                \"broadr_reach_mode\": \"SLAVE\",\n                \"port_rate_cap_value\": 1000.0,\n                \"port_rate_cap_profile\": \"physical_port_rate\",\n                \"port_rate_cap_unit\": \"1e6_bps\",\n                \"inter_frame_gap\": 20,\n                \"speed_reduction_ppm\": 0,\n                \"pause_mode_enabled\": 0,\n                \"latency_offset_ms\": 0,\n                \"fec_mode\": \"off\",\n                \"profile_id\": \"70d01fb3-57a2-46fe-9e23-7390b23342e3\",\n                \"ip_gateway_mac_address\": \"000000000000\",\n                \"reply_arp_requests\": true,\n                \"reply_ping_requests\": true,\n                \"remote_loop_mac_address\": \"000000000000\",\n                \"ipv4_properties\": {\n                    \"address\": \"0.0.0.0\",\n                    \"routing_prefix\": 24,\n                    \"public_address\": \"0.0.0.0\",\n                    \"public_routing_prefix\": 24,\n                    \"gateway\": \"0.0.0.0\",\n                    \"remote_loop_address\": \"0.0.0.0\",\n                    \"ip_version\": 4\n                },\n                \"ipv6_properties\": {\n                    \"address\": \"::\",\n                    \"routing_prefix\": 64,\n                    \"public_address\": \"::\",\n                    \"public_routing_prefix\": 64,\n                    \"gateway\": \"::\",\n                    \"remote_loop_address\": \"::\",\n                    \"ip_version\": 6\n                },\n                \"port_rate_cap_enabled\": false\n            }\n        },\n        \"test_types_configuration\": {\n            \"throughput_test\": {\n                \"test_type\": \"throughput\",\n                \"enabled\": true,\n                \"common_options\": {\n                    \"duration_type\": \"time\",\n                    \"duration\": 10.0,\n                    \"duration_unit\": \"Seconds\",\n                    \"iterations\": 1\n                },\n                \"rate_iteration_options\": {\n                    \"search_type\": \"binary_search\",\n                    \"result_scope\": \"common_result\",\n                    \"initial_value_pct\": 100.0,\n                    \"maximum_value_pct\": 100.0,\n                    \"minimum_value_pct\": 0.1,\n                    \"value_resolution_pct\": 0.5\n                },\n                \"use_pass_threshold\": false,\n                \"pass_threshold_pct\": 0.0,\n                \"acceptable_loss_pct\": 0.0,\n                \"collect_latency_jitter\": false\n            },\n            \"latency_test\": {\n                \"test_type\": \"latency\",\n                \"enabled\": true,\n                \"common_options\": {\n                    \"duration_type\": \"time\",\n                    \"duration\": 10.0,\n                    \"duration_unit\": \"Seconds\",\n                    \"iterations\": 1\n                },\n                \"rate_sweep_options\": {\n                    \"start_value_pct\": 50.0,\n                    \"end_value_pct\": 100.0,\n                    \"step_value_pct\": 50.0,\n                    \"burst_resolution\": 0\n                },\n                \"latency_mode\": \"Last_To_Last\",\n                \"use_relative_to_throughput\": true,\n                \"throughput\": 0\n            },\n            \"frame_loss_rate_test\": {\n                \"test_type\": \"loss\",\n                \"enabled\": true,\n                \"common_options\": {\n                    \"duration_type\": \"time\",\n                    \"duration\": 10.0,\n                    \"duration_unit\": \"Seconds\",\n                    \"iterations\": 1\n                },\n                \"rate_sweep_options\": {\n                    \"start_value_pct\": 50.0,\n                    \"end_value_pct\": 100.0,\n                    \"step_value_pct\": 50.0,\n                    \"burst_resolution\": 0\n                },\n                \"use_gap_monitor\": false,\n                \"gap_monitor_start_microsec\": 0,\n                \"gap_monitor_stop_frames\": 0,\n                \"use_pass_fail_criteria\": false,\n                \"acceptable_loss_pct\": 0.0,\n                \"acceptable_loss_type\": \"Percent\"\n            },\n            \"back_to_back_test\": {\n                \"test_type\": \"back_to_back\",\n                \"enabled\": true,\n                \"common_options\": {\n                    \"duration_type\": \"frames\",\n                    \"duration\": 1,\n                    \"duration_unit\": \"10e6_frames\",\n                    \"iterations\": 1\n                },\n                \"rate_sweep_options\": {\n                    \"start_value_pct\": 50.0,\n                    \"end_value_pct\": 100.0,\n                    \"step_value_pct\": 50.0,\n                    \"burst_resolution\": 100\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/test",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Pause Test",
+					"id": "6a9bfc6e-67e0-4269-a27e-35a2b3ba6ddc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/test/{{TEST_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test",
+								"{{TEST_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0423984a-4413-4d21-8d36-1deca79a3c44",
+							"name": "Test Paused",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/test/{{TEST_ID}}",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"{{TEST_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 21:01:17 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "dd4deb2f-6131-4ad9-a8dd-4df5a7478c8b",
+							"name": "Test Resumed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/test/{{TEST_ID}}",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"{{TEST_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 21:02:01 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Stop Test",
+					"id": "38102929-a80e-4c80-843e-e4d360aaa5ec",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/test/{{TEST_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"test",
+								"{{TEST_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "865a77a1-67f4-4bdf-a80c-be8c97477212",
+							"name": "Test Stopped",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/test/88d683e1-0ee5-482d-869c-62d98800acd1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"88d683e1-0ee5-482d-869c-62d98800acd1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 13:44:31 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "9c8e3220-bc4a-4188-9745-9f005b9f4280"
+		},
+		{
+			"name": "Worker API",
+			"item": [
+				{
+					"name": "Get Worker Info",
+					"id": "02b343c0-63d7-4a52-bf1a-db6b1026a851",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c5f06a35-5ff1-4f46-92e1-8b3e37b2ffd8",
+							"name": "Worker Info Fetched",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 10:07:55 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Etag",
+									"value": "\"8433fe6ff6ecfe04f19e030c36a979c7f706a686\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nid\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"name\": \"XOA Node\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Ping Worker",
+					"id": "5ccf8dbd-af0d-49cf-be37-7e5b478cc217",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/ping",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "380bfe94-196c-4c36-9e67-c107bdb2f80a",
+							"name": "Worker Responded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/ping",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ping"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 23:42:31 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Etag",
+									"value": "\"61aeaa4b040c6091545abab8ad0286f13eb1144d\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pong\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"timestamp\": \"2022-12-08T23:42:31.947237\"\n}"
+						}
+					]
+				}
+			],
+			"id": "34773aef-d017-482f-ab73-cdb899c3d0a6"
+		},
+		{
+			"name": "Subscription API",
+			"item": [
+				{
+					"name": "Subscribe to Alerts",
+					"id": "b038b110-4c41-4ce8-8779-401d9ba99da8",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"alerts\",\n    \"destination\": \"https://84c71bf7-a642-4077-8f72-4dad9fd951f3.mock.pstmn.io/temp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe/resources",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"subscribe",
+								"resources"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "fbeff6e8-e554-48fc-9fdd-e1e63fcdf52c",
+							"name": "Duplicated Subscription",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"alerts\",\n    \"destination\": \"https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/v1/subscribe/resources",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscribe",
+										"resources"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 13:36:50 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "1cbd0204-0e15-4e91-8393-2736fcfde5a6",
+							"name": "Subscription Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"alerts\",\n    \"destination\": \"https://42a79945-4989-40a2-b4ec-44ce046d7e6e.mock.pstmn.io/temp\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe/resources",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscribe",
+										"resources"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 20:43:34 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Subscribe to Resource Status",
+					"id": "aeea4492-f3aa-4344-947e-f691e01ce0fc",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"resources\",\n    \"destination\": \"https://84c71bf7-a642-4077-8f72-4dad9fd951f3.mock.pstmn.io/temp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe/resources",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"subscribe",
+								"resources"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3e85bb30-5c93-4de7-ac86-a5480793187c",
+							"name": "Subscription Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"resources\",\n    \"destination\": \"https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe/resources",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscribe",
+										"resources"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 12:10:10 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "fe509c4e-8c40-457e-a4e8-227f579f668c",
+							"name": "Duplicated Subscription",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"worker_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c0\",\n    \"manager_id\": \"687a4224-1a6b-4144-bb17-ee73d37298c1\",\n    \"service_name\": \"resources\",\n    \"destination\": \"https://42a79945-4989-40a2-b4ec-44ce046d7e6e.mock.pstmn.io/temp\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe/resources",
+									"protocol": "http",
+									"host": [
+										"{{WORKER_ADDRESS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscribe",
+										"resources"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "TornadoServer/6.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Dec 2022 20:44:14 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "x-requested-with, content-type"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Unsubscribe",
+					"id": "59d15b7a-9f3f-4fe9-92de-ee6cd0298d8f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{WORKER_ADDRESS}}/api/v1/subscribe",
+							"protocol": "http",
+							"host": [
+								"{{WORKER_ADDRESS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "9f7787ea-12f7-40f4-b3c9-99d9771a5e3d"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ba2a403d-0505-478f-8a5c-f2402123937f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cc3aeee8-b17a-45fc-b25c-0fbec2752106",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6ff5d1a3-be0f-49eb-bdab-cdd3387314c2",
+			"key": "WORKER_ADDRESS",
+			"value": "WORKER_ADDRESS"
+		},
+		{
+			"id": "3da908a1-b19b-42cc-a3d5-bcbd86d360ff",
+			"key": "TESTER_ID",
+			"value": "TESTER_ID"
+		},
+		{
+			"id": "087d6337-c9f2-41de-bffc-fb8aee5bec67",
+			"key": "TEST_ID",
+			"value": "TEST_ID"
+		}
+	]
+}

@@ -5,7 +5,7 @@ id = 8ea538ce-04e4-4808-9624-94e057ca76cc
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"6625866-4ed4621c-45fc-4a78-927f-816ad4d4c9ad","path":"XOA API (ANLT) v0.1 Examples.json","metaData":{}}
+files[] = {"id":"6625866-0be4fa64-cb39-4e68-b94a-93de2d347e8a","path":"XOA API Examples.json","metaData":{}}
 
 [relations.collections.metaData]
 
@@ -59,10 +59,8 @@ files[] = {"path":"schemas/2544/TidAllocationScope.yaml","metaData":{}}
 files[] = {"path":"schemas/2544/TogglePortSyncConfig.yaml","metaData":{}}
 files[] = {"path":"schemas/2544/TrafficDirection.yaml","metaData":{}}
 files[] = {"path":"schemas/2544/ValueRange.yaml","metaData":{}}
-files[] = {"path":"schemas/2544TestConfig.yaml","metaData":{}}
 files[] = {"path":"schemas/_index.yaml","metaData":{}}
 files[] = {"path":"schemas/anlt/PluginModelANLT.yaml","metaData":{}}
-files[] = {"path":"schemas/ANLTTestConfig.yaml","metaData":{}}
 files[] = {"path":"schemas/APIVersion.yaml","metaData":{}}
 files[] = {"path":"schemas/ModuleId.yaml","metaData":{}}
 files[] = {"path":"schemas/ModuleList.yaml","metaData":{}}

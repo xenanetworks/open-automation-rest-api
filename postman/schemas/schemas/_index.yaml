@@ -15,9 +15,9 @@ PortId:
 TestId:
   $ref: "./TestId.yaml"
 NodeInfo:
-  $ref: "./NodeInfoObj.yaml"
+  $ref: "./NodeInfo.yaml"
 PongInfo:
-  $ref: "./PongInfoObj.yaml"
+  $ref: "./PongInfo.yaml"
 ProductType:
   $ref: "./ProductType.yaml"
 TesterLoginCredential:
@@ -33,7 +33,7 @@ ModuleObject:
 PortObject:
   $ref: "./PortObject.yaml"
 SpeedModeObject:
-  $ref: "./SpeedModeObject.yaml"
+  $ref: "./SpeedMode.yaml"
 PortList:
   $ref: "./PortList.yaml"
 ModuleList:
@@ -41,10 +41,6 @@ ModuleList:
 TesterList:
   $ref: "./TesterList.yaml"
 PortIdentityObject:
-  $ref: "./PortIdentityObject.yaml"
+  $ref: "./PortIdentity.yaml"
 TestConfiguration:
   $ref: "./TestConfiguration.yaml"
-2544TestConfig:
-  $ref: "./2544TestConfig.yaml"
-PortANLTTestConfigIdentityObject:
-  $ref: "./ANLTTestConfig.yaml"
