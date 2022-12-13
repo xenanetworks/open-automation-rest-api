@@ -171,7 +171,21 @@ paths:
       responses:
         '200':
           description: Test Paused/Resumed
-          
+  
+  /api/{{api_version}}/subscribe:
+    parameters:
+      - name: api_version
+        description: API version
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/APIVersion'
+    delete:
+      summary: Unsubscribe
+      responses:
+        '200':
+          description: Unsubscribed
+
   /api/{{api_version}}/subscribe/resources:
     parameters:
       - name: api_version
