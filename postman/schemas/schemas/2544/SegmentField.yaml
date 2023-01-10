@@ -18,3 +18,5 @@ required:
   - name
   - value
   - bit_length
+  - hw_modifier
+  - value_range

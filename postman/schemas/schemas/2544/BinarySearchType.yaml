@@ -1,4 +1,5 @@
 title: BinarySearchType
+type: string
 description: Binary search type enums
 enum:
     - binary_search

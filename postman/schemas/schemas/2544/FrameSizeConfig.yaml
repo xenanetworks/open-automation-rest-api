@@ -1,0 +1,16 @@
+title: FrameSizeConfig
+type: object
+properties:
+    frame_sizes:
+      $ref: './FrameSizeConfiguration.yaml'
+    use_micro_tpld_on_demand:
+      title: Use Micro Tpld On Demand
+      type: boolean
+    payload_type:
+      $ref: './PayloadTypeStr.yaml'
+    payload_pattern:
+      title: Payload Pattern
+      type: string
+      minimium_legngth: 2
+      maximum_legngth: 36
+      pattern: "[0-9A-F]"

@@ -22,7 +22,7 @@ properties:
     maximum: 100.0
     type: number
   value_resolution_pct:
-    title: Value Resolution Pct
+    title: Resolution Pct
     minimum: 0.0
     maximum: 100.0
     type: number

@@ -1,0 +1,30 @@
+title: TestExecutionConfig
+type: object
+properties:
+  flow_creation_config:
+    $ref: './FlowCreationConfig.yaml'
+  port_scheduling_config:
+    $ref: './PortSchedulingConfig.yaml'
+  outer_loop_mode:
+    $ref: './OuterLoopMode.yaml'
+  mac_learning_options:
+    $ref: './MacLearningOption.yaml'
+  l23_learning_options:
+    $ref: './L23LearningOption.yaml'
+  flow_based_learning_options:
+    $ref: './FlowBasedLearningOption.yaml'
+  reset_error_handling:
+    $ref: './ResetErorrHandling.yaml'
+  repeat_test_until_stopped:
+    title: Repeat Test Until Stopped
+    default: false
+    type: boolean
+required:
+  - flow_creation_config
+  - port_scheduling_config
+  - outer_loop_mode
+  - mac_learning_options
+  - l23_learning_options
+  - flow_based_learning_options
+  - reset_error_handling
+  - repeat_test_until_stopped

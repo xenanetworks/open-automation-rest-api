@@ -1,7 +1,7 @@
 title: ProtocolSegment
 type: object
 properties:
-  segment_type:
+  type:
     $ref: './SegmentType.yaml'
   fields:
     title: Fields
@@ -12,5 +12,6 @@ properties:
     title: Checksum Offset
     type: integer
 required:
-  - segment_type
+  - type
   - fields
+  - checksum_offset

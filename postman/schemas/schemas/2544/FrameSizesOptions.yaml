@@ -21,3 +21,8 @@ properties:
     default: 16360
     minimum: 0
     type: integer
+required:
+  - field_0
+  - field_1
+  - field_14
+  - field_15

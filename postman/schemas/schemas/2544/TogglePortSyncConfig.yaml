@@ -4,15 +4,15 @@ properties:
   toggle_port_sync:
     title: Toggle Port Sync
     type: boolean
-  sync_off_duration_second:
-    title: Sync Off Duration Second
+  sync_off_duration:
+    title: Sync Off Duration (ms)
     minimum: 0
     type: integer
-  delay_after_sync_on_second:
-    title: Delay After Sync On Second
+  delay_after_sync_on:
+    title: Delay After Sync On (ms)
     minimum: 0
     type: integer
 required:
   - toggle_port_sync
-  - sync_off_duration_second
-  - delay_after_sync_on_second
+  - sync_off_duration
+  - delay_after_sync_on

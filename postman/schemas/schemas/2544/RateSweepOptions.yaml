@@ -5,16 +5,18 @@ properties:
   start_value_pct:
     title: Start Value Pct
     type: number
+    minimum: 0.00
+    maximum: 100.00
   end_value_pct:
     title: End Value Pct
     type: number
+    minimum: 0.00
+    maximum: 100.00
   step_value_pct:
     title: Step Value Pct
     type: number
-  burst_resolution:
-    title: Burst Resolution
-    default: 0
-    type: number
+    minimum: 0.00
+    maximum: 100.00
 required:
   - start_value_pct
   - end_value_pct

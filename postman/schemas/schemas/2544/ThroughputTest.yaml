@@ -20,7 +20,7 @@ properties:
     title: Acceptable Loss Pct
     type: number
   collect_latency_jitter:
-    title: Collect Latency Jitter
+    title: Collect Latency and Jitter
     type: boolean
 required:
   - test_type

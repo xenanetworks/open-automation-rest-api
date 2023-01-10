@@ -1,4 +1,5 @@
 title: FECModeStr
+type: string
 description: FEC mode string enums
 enum:
     - on

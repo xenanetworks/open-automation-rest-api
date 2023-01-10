@@ -1,9 +1,15 @@
 title: ProtocolSegmentProfileConfig
 type: object
 properties:
-  header_segments:
+  id:
+    type: string
+    format: uuid
+  segments:
     title: Header Segments
     default: []
     type: array
     items:
       $ref: './ProtocolSegment.yaml'
+required:
+  - id
+  - segments

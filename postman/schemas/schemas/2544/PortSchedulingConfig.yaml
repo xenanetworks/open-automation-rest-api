@@ -1,0 +1,13 @@
+title: PortSchedulingConfig
+type: object
+properties:
+    enable_speed_reduction_sweep:
+      title: Enable Speed Reduction Sweep
+      type: boolean
+    use_port_sync_start:
+      title: Use Port Sync Start
+      type: boolean
+    port_stagger_steps:
+      title: Port Stagger Steps
+      minimum: 0
+      type: integer

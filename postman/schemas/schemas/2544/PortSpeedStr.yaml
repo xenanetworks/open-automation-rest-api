@@ -1,4 +1,5 @@
 title: PortSpeedStr
+type: string
 description: Port speed string enums
 enum:
     - auto

@@ -1,0 +1,13 @@
+title: Reset and Error Handling Config
+type: object
+properties:
+  should_stop_on_los:
+    title: Should Stop On Loss-of-Signal
+    type: boolean
+  delay_after_port_reset:
+    title: Delay After Port Reset (ms)
+    minimum: 0
+    type: integer
+required:
+  - should_stop_on_los
+  - delay_after_port_reset

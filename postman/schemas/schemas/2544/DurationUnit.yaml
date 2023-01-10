@@ -1,4 +1,5 @@
 title: DurationUnit
+type: string
 description: Test duration unit enums
 enum:
     - seconds

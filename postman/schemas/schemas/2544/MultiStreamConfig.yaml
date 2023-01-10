@@ -6,19 +6,20 @@ properties:
     type: boolean
   per_port_stream_count:
     title: Per Port Stream Count
-    minimum: 0
+    minimum: 1
     type: integer
   multi_stream_address_offset:
     title: Multi Stream Address Offset
-    minimum: 0
+    minimum: 1
     type: integer
   multi_stream_address_increment:
     title: Multi Stream Address Increment
-    minimum: 0
+    minimum: 1
     type: integer
   multi_stream_mac_base_address:
     title: Multi Stream MAC Base Address
     type: string
+    pattern: "[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}"
 required:
   - enable_multi_stream
   - per_port_stream_count

@@ -1,0 +1,15 @@
+title: BurstSizeIterationOptions
+description: Burst size iteration options
+type: object
+properties:
+  maximum_burst:
+    title: Maximum Burst Size
+    minimum: 1
+    type: integer
+  burst_resolution:
+    title: Burst Resolution
+    minimum: 1
+    type: integer
+required:
+  - maximum_burst
+  - burst_resolution

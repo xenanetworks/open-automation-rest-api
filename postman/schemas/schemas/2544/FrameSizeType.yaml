@@ -1,4 +1,5 @@
 title: FrameSizeType
+type: string
 description: Frame size type enums
 enum:
     - ietf_default

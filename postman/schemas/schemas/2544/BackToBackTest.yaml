@@ -10,8 +10,11 @@ properties:
     $ref: './CommonOptions.yaml'
   rate_sweep_options:
     $ref: './RateSweepOptions.yaml'
+  burst_size_iteration_options:
+    $ref: './BurstSizeIterationOptions.yaml'
 required:
   - test_type
   - enabled
   - common_options
   - rate_sweep_options
+  - burst_size_iteration_options

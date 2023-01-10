@@ -1,0 +1,7 @@
+title: TopologyConfig
+type: object
+properties:
+    topology:
+      $ref: './TestTopology.yaml'
+    direction:
+      $ref: './TrafficDirection.yaml'

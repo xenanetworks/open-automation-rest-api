@@ -1,4 +1,5 @@
 title: SegmentType
+type: string
 description: Protocol segment type enums
 enum:
     - ethernet

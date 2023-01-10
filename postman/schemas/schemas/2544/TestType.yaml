@@ -1,4 +1,5 @@
 title: TestType
+type: string
 description: Type of test case enums
 enum:
     - throughput

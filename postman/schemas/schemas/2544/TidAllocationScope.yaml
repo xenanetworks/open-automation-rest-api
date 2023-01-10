@@ -1,5 +1,6 @@
 title: TidAllocationScope
-description: An enumeration.
+type: string
+description: Test Payload ID allocation scope enums
 enum:
     - config_scope
     - port_scope

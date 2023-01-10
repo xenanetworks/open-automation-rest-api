@@ -1,4 +1,5 @@
 title: LatencyModeStr
+type: string
 description: Latency mode string enums
 enum:
     - first_to_last

@@ -1,0 +1,27 @@
+title: L23 Learning Options
+type: object
+properties:
+  learning_rate_pct:
+    title: Learning Rate Pct
+    type: number
+    minimium: 0.1
+  learning_duration:
+    title: Learning Duration (ms)
+    minimum: 1
+    type: integer
+  arp_refresh_enabled:
+    title: Arp Refresh Enabled
+    type: boolean
+  arp_refresh_period:
+    title: Arp Refresh Period (ms)
+    minimum: 0.1
+    type: number
+  use_gateway_mac_as_dmac:
+    title: Use Gateway MAC As DMAC
+    type: boolean
+required:
+  - learning_rate_pct
+  - learning_duration
+  - arp_refresh_enabled
+  - arp_refresh_period
+  - use_gateway_mac_as_dmac

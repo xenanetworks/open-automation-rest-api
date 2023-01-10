@@ -1,4 +1,5 @@
 title: MdiMdixMode
+type: string
 description: MDI/MDIX mode enums
 enum:
     - auto

@@ -43,11 +43,12 @@ properties:
     type: integer
   fec_mode:
     $ref: './FECModeStr.yaml'
-  profile_id:
-    title: Profile Id
+  protocol_segment_profile_id:
+    title: Protocl segment profile ID used by the port
     type: string
+    format: uuid
   ip_gateway_mac_address:
-    title: Ip Gateway Mac Address
+    title: IP Gateway Mac Address
     type: string
   reply_arp_requests:
     title: Reply Arp Requests

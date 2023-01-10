@@ -1,4 +1,5 @@
 title: ModifierActionOption
+type: string
 description: Modifier action enums
 enum:
     - increment

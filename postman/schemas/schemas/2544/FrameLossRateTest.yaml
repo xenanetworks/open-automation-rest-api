@@ -24,8 +24,8 @@ properties:
   use_pass_fail_criteria:
     title: Use Pass Fail Criteria
     type: boolean
-  acceptable_loss_pct:
-    title: Acceptable Loss Pct
+  acceptable_loss:
+    title: Acceptable Loss
     type: number
   acceptable_loss_type:
     $ref: './AcceptableLossType.yaml'
@@ -38,5 +38,5 @@ required:
   - gap_monitor_start_microsec
   - gap_monitor_stop_frames
   - use_pass_fail_criteria
-  - acceptable_loss_pct
+  - acceptable_loss
   - acceptable_loss_type
