@@ -1,0 +1,1923 @@
+openapi: "3.0.0"
+
+info:
+    version: "0.4.0"
+    title: "Xena OpenAutomation REST API"
+    description: XOA REST API for test suite integration with third-party test automation framework
+
+servers:
+    - url: "localhost"
+
+paths:
+    /api/{{api_version}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: Get Worker Info
+            responses:
+                "200":
+                    description: Worker Info Fetched
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/NodeInfo"
+
+    /api/{{api_version}}/ping:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: Ping Worker
+            responses:
+                "200":
+                    description: Worker Responded
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/PongInfo"
+
+    /api/{{api_version}}/testers:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: List Testers
+            responses:
+                "200":
+                    description: Tester List Returned
+                    content:
+                        application/json:
+                            schema:
+                                title: Tester List
+                                description: List of testers
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/TesterObject"
+        post:
+            summary: Add Tester
+            responses:
+                "201":
+                    description: Tester Added
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TesterId"
+                "202":
+                    description: Tester Already Added
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TesterId"
+                "422":
+                    description: Bad Tester Information
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/TesterLoginCredential"
+
+    /api/{{api_version}}/testers/{{tester_id}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+            - name: tester_id
+              description: Tester identifier
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TesterId"
+        delete:
+            summary: Remove Tester
+            responses:
+                "200":
+                    description: Tester Removed
+
+    /api/{{api_version}}/testers/{{tester_id}}/control:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+            - name: tester_id
+              description: Tester identifier
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TesterId"
+        post:
+            summary: Connect Tester
+            responses:
+                "200":
+                    description: Tester Connected
+        delete:
+            summary: Disconnect Tester
+            responses:
+                "200":
+                    description: Tester Disconnected
+
+    /api/{{api_version}}/test:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        post:
+            summary: Start Test
+            responses:
+                "200":
+                    description: Test Started
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TestId"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/TestData"
+
+    /api/{{api_version}}/test/{{test_id}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+            - name: test_id
+              description: Test execution id
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TestId"
+        delete:
+            summary: Stop Test
+            responses:
+                "200":
+                    description: Test Stopped
+        patch:
+            summary: Toggle Pause Test
+            responses:
+                "200":
+                    description: Test Paused and Resumed
+
+    /api/{{api_version}}/subscribe:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        delete:
+            summary: Unsubscribe from Service
+            responses:
+                "200":
+                    description: Unsubscribed
+
+    /api/{{api_version}}/subscribe/resources:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        post:
+            summary: Subscribe to Service
+            responses:
+                "201":
+                    description: Subscription Created
+                "202":
+                    description: Duplicated Subscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/SubscriptionInfo"
+
+components:
+    schemas:
+        APIVersion:
+            type: string
+            description: API version
+            default: "v1"
+            enum:
+                - "v1"
+            example: "v1"
+        SenderId:
+            type: string
+            description: The unique identifier of the API sender
+            format: uuid
+            example: "687a4224-1a6b-4144-bb17-ee73d37298c1"
+        WorkerId:
+            type: string
+            description: The unique identifier of a XOA Worker
+            format: uuid
+            example: "687a4224-1a6b-4144-bb17-ee73d37298c0"
+        NodeId:
+            type: string
+            description: The unique identifier of a XOA Node
+            format: uuid
+            example: "687a4224-1a6b-4144-bb17-ee73d37298c0"
+        SubscriptionInfo:
+            type: object
+            properties:
+                worker_id:
+                    $ref: "#/components/schemas/WorkerId"
+                sender_id:
+                    $ref: "#/components/schemas/SenderId"
+                service_name:
+                    type: string
+                    enum:
+                        - "alerts"
+                        - "resources"
+                    example: "alerts"
+                destination:
+                    type: string
+                    description: The URL of the endpoint to receive the push messages
+                    format: url
+                    example: "https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp"
+        NodeInfo:
+            type: object
+            properties:
+                nid:
+                    $ref: "#/components/schemas/NodeId"
+                name:
+                    description: The name of the XOA Node
+                    type: string
+                    example: "XOA Node"
+            required:
+                - nid
+                - name
+        PongInfo:
+            type: object
+            properties:
+                pong:
+                    $ref: "#/components/schemas/NodeId"
+                timestamp:
+                    type: string
+                    description: Timestamp of the response
+                    format: date-time
+                    example: "2022-12-08T23:42:31.947237"
+            required:
+                - pong
+                - timestamp
+        TesterId:
+            title: Tester ID
+            description: Unique identifier of a tester
+            type: string
+            format: md5
+            pattern: "[0-9a-f]{32}"
+            example: "598e592ceb28ce73b95d270a1b028ff3"
+        ProductType:
+            title: Product Type
+            description: Product type of the tester (Valkyrie=1, Vulcan=2, Safire=3, Vantage=4, Chimera=5)
+            type: integer
+            enum:
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+        TesterLoginCredential:
+            title: Tester Login Credentials
+            description: The credentials to provide for tester login
+            type: object
+            properties:
+                product:
+                    $ref: "#/components/schemas/ProductType"
+                host:
+                    description: Address of the tester
+                    type: string
+                    format: ipv4, ipv6, url
+                    example: "87.61.110.114"
+                password:
+                    description: Login password of the tester
+                    type: string
+                    format: password
+                    default: "xena"
+                    example: "xena"
+                port:
+                    description: Tester's TCP port for the XOA Node to connect to
+                    type: integer
+                    default: 22606
+                    example: 22606
+            required:
+                - product
+                - host
+                - password
+                - port
+        PortSpeedModeInt:
+            title: Port Speed Mode (Integer)
+            description: Port speed mode (int)
+            type: integer
+            enum:
+                - 0
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+                - 6
+                - 7
+                - 8
+                - 9
+                - 10
+                - 11
+                - 12
+                - 13
+                - 14
+                - 15
+                - 16
+                - 17
+                - 18
+                - 19
+                - 20
+                - 255
+            example: 5
+        PortId:
+            title: Port ID
+            description: Unique identifier of a port by appending the module index and port index to the tester id
+            type: string
+            pattern: "[0-9a-f]{32}-[0-9]{1}-[0-9]{1}"
+            example: "598e592ceb28ce73b95d270a1b028ff3-0-0"
+        PortObject:
+            title: Port Object
+            type: object
+            properties:
+                id:
+                    $ref: "#/components/schemas/PortId"
+                index:
+                    description: Index of the port
+                    type: integer
+                    minimum: 0
+                    example: 0
+                model:
+                    description: Port model
+                    type: string
+                    example: "T1 100/1000M [Dual] [Auto]"
+                reserved_by:
+                    description: Port's ownership
+                    type: string
+                    example: ""
+                sync_status:
+                    description: Port's sync status (no_sync=0, in_sync=1.)
+                    type: integer
+                    enum:
+                        - 0
+                        - 1
+                    example: 1
+                traffic_state:
+                    description: Port's traffic status (traffic off=0, traffic on=1.)
+                    type: integer
+                    enum:
+                        - 0
+                        - 1
+                    example: 0
+                max_speed:
+                    description: Port's maximum speed in Mbps
+                    type: integer
+                    example: 1000
+                max_speed_reduction:
+                    description: Port's maximum speed reduction in ppm
+                    type: integer
+                    example: 1000
+                min_interframe_gap:
+                    description: Port's minimum interframe gap in bytes
+                    type: integer
+                    example: 16
+                max_interframe_gap:
+                    description: Port's maximum interframe gap in bytes
+                    type: integer
+                    example: 63
+                max_streams_per_port:
+                    description: Maximum number of streams allowed on the port
+                    type: integer
+                    example: 256
+                packet_limit:
+                    description: Stop port transmission after the specified number of packets are sent (no stopping=0)
+                    type: integer
+                    example: 0
+                min_packet_length:
+                    description: Minimum packet length in bytes allowed on the port
+                    type: integer
+                    example: 56
+                max_packet_length:
+                    description: Maximum packet length in bytes allowed on the port
+                    type: integer
+                    example: 16383
+                max_header_length:
+                    description: Maximum header length allowed on the port
+                    type: integer
+                    example: 2048
+                max_protocol_segments:
+                    description: Maximum protocol segments allowed on the port
+                    type: integer
+                    example: 30
+                max_repeat:
+                    description: Maximum packet repeats for modifier
+                    type: integer
+                    example: 4096
+                can_set_autoneg:
+                    description: Whether the port is a RJ45 type that supports auto-negotiation
+                    type: boolean
+                    example: false
+                can_tcp_checksum:
+                    description: Whether the port supports TCP with valid checksum
+                    type: boolean
+                    example: true
+                can_udp_checksum:
+                    description: Whether the port supports UDP with valid checksum
+                    type: boolean
+                    example: true
+                can_micro_tpld:
+                    description: Whether the port supports micro-TPLD
+                    type: boolean
+                    example: true
+                can_mdi_mdix:
+                    description: Whether the port supports MDI/MDIX
+                    type: boolean
+                    example: false
+                can_sync_traffic_start:
+                    description: Whether the port supports synchronized traffic start
+                    type: boolean
+                    example: true
+                can_fec:
+                    description: Whether the port supports FEC
+                    type: boolean
+                    example: false
+                can_anlt:
+                    description: Wehther the port supports ANLT
+                    type: boolean
+                    example: false
+                is_chimera:
+                    description: Whether the port is a Chimera port
+                    type: boolean
+                    example: false
+                can_brr:
+                    description: Whether the port support BroadR-Reach
+                    type: boolean
+                    example: false
+                speed_modes_supported:
+                    description: Speed modes supported by the port
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/PortSpeedModeInt"
+                speed_mode_current:
+                    description: The current speed mode of the port
+                    $ref: "#/components/schemas/PortSpeedModeInt"
+                speed_current:
+                    description: The current port speed in Mbps
+                    type: integer
+                    example: 1000
+                speed_reduction:
+                    description: The speed reduction in ppm
+                    type: integer
+                    example: 0
+        ModuleId:
+            title: Module ID
+            description: Unique identifier of a module on a tester by appending the module index to the tester id
+            type: string
+            pattern: "[0-9a-f]{32}-[0-9]{1}"
+            example: "598e592ceb28ce73b95d270a1b028ff3-0"
+        ModuleObject:
+            title: Module Object
+            type: object
+            properties:
+                id:
+                    $ref: "#/components/schemas/ModuleId"
+                index:
+                    description: Index of the module
+                    minimum: 0
+                    type: integer
+                    example: 0
+                model:
+                    description: Legacy name of the module model
+                    type: string
+                    example: "M6RJ45N"
+                reserved_by:
+                    description: Module's reservation ownership
+                    type: string
+                    example: ""
+                ports:
+                    description: List of ports on a module
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/PortObject"
+                name:
+                    description: Name of the module model
+                    type: string
+                    example: "Odin-10G-5S-6P-CU"
+                can_media_config:
+                    description: Does the module supports media configuration?
+                    type: boolean
+                    example: false
+                is_chimera:
+                    description: Is it a Chimera module?
+                    type: boolean
+                    example: false
+                can_local_time_adjust:
+                    description: Does the module support local time adjustment?
+                    type: boolean
+                    example: false
+                max_clock_ppm:
+                    description: Maximum ppm allowed for clock adjustment
+                    type: integer
+                    example: 400
+        TesterObject:
+            title: Tester Object
+            type: object
+            properties:
+                id:
+                    $ref: "#/components/schemas/TesterId"
+                product:
+                    $ref: "#/components/schemas/ProductType"
+                host:
+                    description: Address of the tester
+                    type: string
+                    format: ipv4, ipv6, url
+                    example: "87.61.110.114"
+                password:
+                    description: Login password of the tester
+                    type: string
+                    format: password
+                    default: "xena"
+                    example: "xena"
+                port:
+                    description: Tester's TCP port for the XOA Node to connect to
+                    type: integer
+                    default: 22606
+                    example: 22606
+                name:
+                    description: Name of the tester
+                    type: string
+                    example: "Live Demo"
+                reserved_by:
+                    description: Reservation ownership of the tester
+                    type: string
+                    example: ""
+                is_connected:
+                    description: If the XOA Worker is connected to the tester
+                    type: boolean
+                    example: true
+                modules:
+                    title: Module List
+                    description: List of modules on a tester
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/ModulObject"
+                keep_disconnected:
+                    description: Should the Worker keep the tester disconnected after reboot
+                    type: boolean
+                    example: true
+                max_name_len:
+                    description: Maximum length of the tester name allowed
+                    type: integer
+                    example: 32
+                max_comment_len:
+                    description: Maximum length of the tester description allowed
+                    type: integer
+                    example: 64
+                max_password_len:
+                    description: Maximum length of the tester password allowed
+                    type: integer
+                    example: 32
+
+        TestId:
+            title: Test ID
+            description: The unique identifier of a test
+            type: string
+            format: uuid
+            example: "88d683e1-0ee5-482d-869c-62d98800acd1"
+        PortIdentity:
+            title: Port Identity
+            type: object
+            properties:
+                tester_id:
+                    $ref: "#/components/schemas/TesterId"
+                module_index:
+                    description: Index of the module
+                    type: integer
+                    minimum: 0
+                    example: 1
+                port_index:
+                    description: Index of the port
+                    type: integer
+                    minimum: 0
+                    example: 2
+            required:
+                - tester_id
+                - module_index
+                - port_index
+
+        TestData:
+            title: Test Data
+            description: The complete test configuration data
+            type: object
+            properties:
+                username:
+                    description: The username that runs the test
+                    type: string
+                    example: "OpenAutomation"
+                test_name:
+                    description: Name of the test suite to run
+                    type: string
+                    example: "RFC-2544"
+                    enum:
+                        - "RFC-2544"
+                        - "RFC-2889"
+                        - "RFC-3918"
+                port_identities:
+                    description: To identify where the ports are physically located
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/PortIdentity"
+                destination:
+                    description: The URL of the endpoint for the Worker to send statistics, alerts, notifications, etc.
+                    type: string
+                    format: url
+                    example: "https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp"
+                config:
+                    description: The configuration of the test suite
+                    type: object
+                    oneOf:
+                        - $ref: "#/components/schemas/TS2544Config"
+            required:
+                - username
+                - test_name
+                - port_identities
+                - destination
+                - config
+
+        TS2544Config:
+            title: RFC-2544 Test Suite Configuration
+            type: object
+            properties:
+                test_configuration:
+                    description: Test suite configuration
+                    type: object
+                    properties:
+                        topology_config:
+                            description: Topology and traffic configuration
+                            type: object
+                            properties:
+                                topology:
+                                    description: Test topology
+                                    type: string
+                                    enum:
+                                        - "pairs"
+                                        - "blocks"
+                                        - "mesh"
+                                    example: "mesh"
+                                direction:
+                                    description: Traffic direction
+                                    type: string
+                                    enum:
+                                        - "east_to_west"
+                                        - "west_to_east"
+                                        - "bidirectional"
+                                    example: "bidirectional"
+                            required:
+                                - topology
+                                - direction
+                        frame_size_config:
+                            description: Frame size and payload configuration
+                            type: object
+                            properties:
+                                frame_sizes:
+                                    description: Frame size configuration
+                                    type: object
+                                    properties:
+                                        packet_size_type:
+                                            type: string
+                                            description: Frame size type
+                                            enum:
+                                                - "ietf_default"
+                                                - "custom_sizes"
+                                                - "specified"
+                                                - "incrementing"
+                                                - "butterfly"
+                                                - "random"
+                                                - "mixe_sizes"
+                                            example: "custom_sizes"
+                                        custom_packet_sizes:
+                                            description: Custom packet sizes (byte)
+                                            type: array
+                                            items:
+                                                type: integer
+                                                example: 256
+                                        fixed_packet_start_size:
+                                            description: The start value for fixed packet size (byte)
+                                            type: integer
+                                            example: 100
+                                        fixed_packet_end_size:
+                                            description: The end value for fixed packet size (byte)
+                                            type: integer
+                                            example: 500
+                                        fixed_packet_step_size:
+                                            description: The step value for fixed packet size (byte)
+                                            type: integer
+                                            example: 100
+                                        varying_packet_min_size:
+                                            description: The minimum value for varying packet size (byte)
+                                            type: integer
+                                            example: 100
+                                        varying_packet_max_size:
+                                            description: The maximum value for varying packet size (byte)
+                                            type: integer
+                                            example: 1000
+                                        mixed_length_config:
+                                            description: Mixed length configuration
+                                            type: object
+                                            properties:
+                                                field_0:
+                                                    description: The packet size value on #0 position
+                                                    default: 56
+                                                    type: integer
+                                                    example: 56
+                                                field_1:
+                                                    description: The packet size value on #1 position
+                                                    default: 60
+                                                    type: integer
+                                                    example: 60
+                                                field_14:
+                                                    description: The packet size value on #14 position
+                                                    default: 9216
+                                                    type: integer
+                                                    example: 9216
+                                                field_15:
+                                                    description: The packet size value on #15 position
+                                                    default: 16360
+                                                    type: integer
+                                                    example: 16360
+                                            required:
+                                                - field_0
+                                                - field_1
+                                                - field_14
+                                                - field_15
+                                        mixed_sizes_weights:
+                                            description: The weight values for mixed packet sizes
+                                            type: array
+                                            minItems: 16
+                                            maxItems: 16
+                                            items:
+                                                type: integer
+                                                minimum: 0
+                                            default: [
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                57,
+                                                3,
+                                                5,
+                                                1,
+                                                2,
+                                                5,
+                                                1,
+                                                4,
+                                                4,
+                                                18,
+                                                0,
+                                                0]
+                                            example: [
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                57,
+                                                3,
+                                                5,
+                                                1,
+                                                2,
+                                                5,
+                                                1,
+                                                4,
+                                                4,
+                                                18,
+                                                0,
+                                                0]
+                                    required:
+                                        - packet_size_type
+                                        - custom_packet_sizes
+                                        - fixed_packet_start_size
+                                        - fixed_packet_end_size
+                                        - fixed_packet_step_size
+                                        - varying_packet_min_size
+                                        - varying_packet_max_size
+                                        - mixed_length_config
+                                        - mixed_sizes_weights
+                                use_micro_tpld_on_demand:
+                                    description: Use micro TPLD on demand
+                                    type: boolean
+                                    example: true
+                                payload_type:
+                                    type: string
+                                    description: Payload type
+                                    enum:
+                                        - "incrementing"
+                                        - "pattern"
+                                        - "prbs"
+                                    example: "incrementing"
+                                payload_pattern:
+                                    description: Payload pattern in hex byte string
+                                    type: string
+                                    pattern: "[0-9A-F]{2,36}"
+                                    minLength: 2
+                                    maxLength: 36
+                                    example: "000102030405"
+                            required:
+                                - frame_sizes
+                                - use_micro_tpld_on_demand
+                                - payload_type
+                                - payload_pattern
+                        multi_stream_config:
+                            description: Multi-stream configuration
+                            type: object
+                            properties:
+                                enable_multi_stream:
+                                    description: Enable multi-stream
+                                    type: boolean
+                                    example: false
+                                per_port_stream_count:
+                                    description: Per port stream count
+                                    minimum: 1
+                                    type: integer
+                                    example: 1
+                                multi_stream_address_offset:
+                                    description: Multi-stream address offset
+                                    minimum: 1
+                                    type: integer
+                                    example: 1
+                                multi_stream_address_increment:
+                                    description: Multi-stream address increment
+                                    minimum: 1
+                                    type: integer
+                                    example: 1
+                                multi_stream_mac_base_address:
+                                    description: Multi-stream MAC base address
+                                    type: string
+                                    pattern: "[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}"
+                                    example: "0A:0B:0C"
+                            required:
+                                - enable_multi_stream
+                                - per_port_stream_count
+                                - multi_stream_address_offset
+                                - multi_stream_address_increment
+                                - multi_stream_mac_base_address
+                        test_execution_config:
+                            description: Test execution configuration
+                            type: object
+                            properties:
+                                flow_creation_config:
+                                    description: Flow creation configuration
+                                    type: object
+                                    properties:
+                                        flow_creation_type:
+                                            description: Flow creation type
+                                            type: string
+                                            enum:
+                                                - "stream_based"
+                                                - "modifier_based"
+                                            example: "stream_based"
+                                        tid_allocation_scope:
+                                            description: Test Payload ID allcation scope
+                                            type: string
+                                            enum:
+                                                - "config_scope"
+                                                - "port_scope"
+                                                - "source_port_id"
+                                            example: "config_scope"
+                                        mac_base_address:
+                                            description: MAC base address
+                                            type: string
+                                            pattern: "[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}"
+                                            example: "AA:BB:CC"
+                                    required:
+                                        - flow_creation_type
+                                        - tid_allocation_scope
+                                        - mac_base_address
+                                port_scheduling_config:
+                                    description: Port scheduling configuration
+                                    type: object
+                                    properties:
+                                        enable_speed_reduction_sweep:
+                                            description: Should the test module assign a small speed reduction for each port
+                                            type: boolean
+                                            example: false
+                                        use_port_sync_start:
+                                            description: Whether all ports should start traffic simultaneously
+                                            type: boolean
+                                            example: false
+                                        port_stagger_steps:
+                                            description: Port start staggering, i.e. adding a delay to the start time of each port
+                                            minimum: 0
+                                            type: integer
+                                            example: 0
+                                    required:
+                                        - enable_speed_reduction_sweep
+                                        - use_port_sync_start
+                                        - port_stagger_steps
+                                outer_loop_mode:
+                                    description: Outer loop mode
+                                    type: string
+                                    enum:
+                                        - "iterations"
+                                        - "packet_size"
+                                    example: "iterations"
+                                mac_learning_options:
+                                    description: MAC learning options
+                                    type: object
+                                    properties:
+                                        mac_learning_mode:
+                                            type: string
+                                            description: MAC Learning mode
+                                            enum:
+                                                - "never"
+                                                - "once"
+                                                - "every_trial"
+                                            example: "every_trial"
+                                        mac_learning_frame_count:
+                                            description: The number of MAC learning frames to send
+                                            minimum: 1
+                                            type: integer
+                                            example: 5
+                                        toggle_port_sync_config:
+                                            description: Toggle port sync configuration
+                                            type: object
+                                            properties:
+                                                toggle_port_sync:
+                                                    description: Should toggle port sync?
+                                                    type: boolean
+                                                    example: true
+                                                sync_off_duration:
+                                                    description: The duration of port sync off (ms)
+                                                    minimum: 1000
+                                                    type: integer
+                                                    example: 2000
+                                                delay_after_sync_on:
+                                                    description: Delay After Sync On (ms)
+                                                    minimum: 1000
+                                                    type: integer
+                                                    example: 2000
+                                            required:
+                                                - toggle_port_sync
+                                                - sync_off_duration
+                                                - delay_after_sync_on
+                                    required:
+                                        - mac_learning_mode
+                                        - mac_learning_frame_count
+                                        - toggle_port_sync_config
+                                l23_learning_options:
+                                    description: L23 learning options
+                                    type: object
+                                    properties:
+                                        learning_rate_pct:
+                                            description: Learning rate percent
+                                            type: number
+                                            minimum: 0.1
+                                            example: 1.0
+                                        learning_duration:
+                                            description: Learning duration (ms)
+                                            minimum: 1000
+                                            type: integer
+                                            example: 1000
+                                        arp_refresh_enabled:
+                                            description: ARP refresh enabled
+                                            type: boolean
+                                            example: true
+                                        arp_refresh_period:
+                                            description: ARP refresh period (ms)
+                                            minimum: 100
+                                            type: number
+                                            example: 1000
+                                        use_gateway_mac_as_dmac:
+                                            description: Should ARP resolve the gateway MAC address for the DMAC of the outgoing packet
+                                            type: boolean
+                                            example: true
+                                    required:
+                                        - learning_rate_pct
+                                        - learning_duration
+                                        - arp_refresh_enabled
+                                        - arp_refresh_period
+                                        - use_gateway_mac_as_dmac
+                                flow_based_learning_options:
+                                    description: Flow-based learning options
+                                    type: object
+                                    properties:
+                                        use_flow_based_learning_preamble:
+                                            description: Use flow-based learning preamble
+                                            type: boolean
+                                            example: true
+                                        flow_based_learning_frame_count:
+                                            description: Flow-based learning frames to send
+                                            minimum: 1
+                                            type: integer
+                                            example: 10
+                                        delay_after_flow_based_learning:
+                                            description: The delay after flow-based learning is finished (ms)
+                                            minimum: 50
+                                            type: integer
+                                            example: 500
+                                    required:
+                                        - use_flow_based_learning_preamble
+                                        - flow_based_learning_frame_count
+                                        - delay_after_flow_based_learning
+                                reset_error_handling:
+                                    description: Reset and error handling configuration
+                                    type: object
+                                    properties:
+                                        should_stop_on_los:
+                                            description: Should stop the test on Loss-of-Signal
+                                            type: boolean
+                                            example: true
+                                        delay_after_port_reset:
+                                            description: Delay after port reset (ms)
+                                            minimum: 1000
+                                            type: integer
+                                            example: 1000
+                                    required:
+                                        - should_stop_on_los
+                                        - delay_after_port_reset
+                                repeat_test_until_stopped:
+                                    description: Repeat test until stopped
+                                    type: boolean
+                                    example: false
+                            required:
+                                - flow_creation_config
+                                - port_scheduling_config
+                                - outer_loop_mode
+                                - mac_learning_options
+                                - l23_learning_options
+                                - flow_based_learning_options
+                                - reset_error_handling
+                                - repeat_test_until_stopped
+                    required:
+                        - topology_config
+                        - frame_size_config
+                        - multi_stream_config
+                        - test_execution_config
+                protocol_segments:
+                    description: Protocol segment profiles
+                    type: array
+                    items:
+                        description: Protocol segment profile
+                        type: object
+                        properties:
+                            id:
+                                type: string
+                                format: uuid
+                                example: "70d01fb3-57a2-46fe-9e23-7390b23342e3"
+                            segments:
+                                description: Segments
+                                type: array
+                                items:
+                                    description: Segment header
+                                    type: object
+                                    properties:
+                                        type:
+                                            description: Header type
+                                            type: string
+                                            enum:
+                                                - "ethernet"
+                                                - "vlan"
+                                                - "arp"
+                                                - "ipv4"
+                                                - "ipv6"
+                                                - "udp"
+                                                - "tcp"
+                                                - "llc"
+                                                - "snap"
+                                                - "gtp"
+                                                - "icmp"
+                                                - "rtp"
+                                                - "rtcp"
+                                                - "stp"
+                                                - "sctp"
+                                                - "macctrl"
+                                                - "mpls"
+                                                - "pbbtag"
+                                                - "fcoe"
+                                                - "fc"
+                                                - "fcoetail"
+                                                - "igmpv3l0"
+                                                - "igmpv3l1"
+                                                - "udpcheck"
+                                                - "igmpv2"
+                                                - "gre_nocheck"
+                                                - "gre_check"
+                                                - "tcp_check"
+                                                - "igmpv1"
+                                                - "vxlan"
+                                                - "nvgre"
+                                                - "raw_1"
+                                                - "raw_2"
+                                                - "raw_3"
+                                                - "raw_4"
+                                                - "raw_5"
+                                                - "raw_6"
+                                                - "raw_7"
+                                                - "raw_8"
+                                                - "raw_9"
+                                                - "raw_10"
+                                                - "raw_11"
+                                                - "raw_12"
+                                                - "raw_13"
+                                                - "raw_14"
+                                                - "raw_15"
+                                                - "raw_16"
+                                                - "raw_17"
+                                                - "raw_18"
+                                                - "raw_19"
+                                                - "raw_20"
+                                                - "raw_21"
+                                                - "raw_22"
+                                                - "raw_23"
+                                                - "raw_24"
+                                                - "raw_25"
+                                                - "raw_26"
+                                                - "raw_27"
+                                                - "raw_28"
+                                                - "raw_29"
+                                                - "raw_30"
+                                                - "raw_31"
+                                                - "raw_32"
+                                                - "raw_33"
+                                                - "raw_34"
+                                                - "raw_35"
+                                                - "raw_36"
+                                                - "raw_37"
+                                                - "raw_38"
+                                                - "raw_39"
+                                                - "raw_40"
+                                                - "raw_41"
+                                                - "raw_42"
+                                                - "raw_43"
+                                                - "raw_44"
+                                                - "raw_45"
+                                                - "raw_46"
+                                                - "raw_47"
+                                                - "raw_48"
+                                                - "raw_49"
+                                                - "raw_50"
+                                                - "raw_51"
+                                                - "raw_52"
+                                                - "raw_53"
+                                                - "raw_54"
+                                                - "raw_55"
+                                                - "raw_56"
+                                                - "raw_57"
+                                                - "raw_58"
+                                                - "raw_59"
+                                                - "raw_60"
+                                                - "raw_61"
+                                                - "raw_62"
+                                                - "raw_63"
+                                                - "raw_64"
+                                            example: "ethernet"
+                                        fields:
+                                            type: array
+                                            items:
+                                                description: Segment field
+                                                type: object
+                                                properties:
+                                                    name:
+                                                        description: Field name
+                                                        type: string
+                                                        example: "Dst MAC addr"
+                                                    value:
+                                                        description: Field value
+                                                        type: string
+                                                        example: "000000000000000000000000000000000000000000000000"
+                                                    bit_length:
+                                                        description: Bit length
+                                                        type: integer
+                                                        example: 48
+                                                    hw_modifier:
+                                                        description: Modifier configuration
+                                                        type: object
+                                                        nullable: true
+                                                        properties:
+                                                            start_value:
+                                                                description: Start value
+                                                                type: integer
+                                                                example: 0
+                                                            step_value:
+                                                                description: Step value
+                                                                type: integer
+                                                                example: 1
+                                                            stop_value:
+                                                                description: Stop value
+                                                                type: integer
+                                                                example: 65535
+                                                            repeat:
+                                                                description: Repeat
+                                                                type: integer
+                                                                example: 1
+                                                            offset:
+                                                                description: Offset value
+                                                                type: integer
+                                                                example: 0
+                                                            action:
+                                                                $ref: "#/components/schemas/ActionOption"
+                                                            mask:
+                                                                description: Mask
+                                                                type: string
+                                                                pattern: "[0-9A-F]{4}"
+                                                                example: "FFFF"
+                                                        example: null
+                                                        required:
+                                                            - start_value
+                                                            - step_value
+                                                            - stop_value
+                                                            - repeat
+                                                            - offset
+                                                            - action
+                                                            - mask
+                                                    value_range:
+                                                        description: Value range configuration
+                                                        type: object
+                                                        nullable: true
+                                                        properties:
+                                                            start_value:
+                                                                description: Start value
+                                                                type: integer
+                                                                example: 0
+                                                            step_value:
+                                                                description: Step value
+                                                                type: integer
+                                                                example: 1
+                                                            stop_value:
+                                                                description: Stop value
+                                                                type: integer
+                                                                example: 10
+                                                            action:
+                                                                $ref: "#/components/schemas/ActionOption"
+                                                            restart_for_each_port:
+                                                                description: Restart for each port
+                                                                type: boolean
+                                                                example: true
+                                                        example: null
+                                                        required:
+                                                            - start_value
+                                                            - step_value
+                                                            - stop_value
+                                                            - action
+                                                            - restart_for_each_port
+                                                required:
+                                                    - name
+                                                    - value
+                                                    - bit_length
+                                                    - hw_modifier
+                                                    - value_range
+                                        checksum_offset:
+                                            description: Checksum offset
+                                            type: integer
+                                            nullable: true
+                                            example: null
+                                    required:
+                                        - type
+                                        - fields
+                                        - checksum_offset
+                        required:
+                            - id
+                            - segments
+                ports_configuration:
+                    description: Ports configuration
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/2544PortConfiguration"
+                test_types_configuration:
+                    description: 2544 test types configuration
+                    type: object
+                    properties:
+                        throughput_test:
+                            description: Throughput test config
+                            type: object
+                            properties:
+                                test_type:
+                                    $ref: "#/components/schemas/TestType"
+                                enabled:
+                                    description: Enable to use this test
+                                    type: boolean
+                                    example: true
+                                common_options:
+                                    $ref: "#/components/schemas/CommonOptions"
+                                rate_iteration_options:
+                                    description: Rate iteration options
+                                    type: object
+                                    properties:
+                                        search_type:
+                                            type: string
+                                            description: Binary search type
+                                            enum:
+                                                - "binary_search"
+                                                - "fast_binary_search"
+                                            example: "binary_search"
+                                        result_scope:
+                                            type: string
+                                            description: Result Scope type
+                                            enum:
+                                                - "common_result"
+                                                - "per_source_port_result"
+                                            example: "common_result"
+                                        initial_value_pct:
+                                            description: The initial value in percent to use in the iterative search
+                                            minimum: 0.0
+                                            maximum: 100.0
+                                            type: number
+                                            example: 100.0
+                                        maximum_value_pct:
+                                            description: The maximum value in percent to use in the iterative search
+                                            minimum: 0.0
+                                            maximum: 100.0
+                                            type: number
+                                            example: 100.0
+                                        minimum_value_pct:
+                                            description: The minimum value in percent to use in the iterative search
+                                            minimum: 0.0
+                                            maximum: 100.0
+                                            type: number
+                                            example: 1.0
+                                        value_resolution_pct:
+                                            description: The resolution value in percent to use in the iterative search
+                                            minimum: 0.0
+                                            maximum: 100.0
+                                            type: number
+                                            example: 1.0
+                                    required:
+                                        - search_type
+                                        - result_scope
+                                        - initial_value_pct
+                                        - maximum_value_pct
+                                        - minimum_value_pct
+                                        - value_resolution_pct
+                                use_pass_threshold:
+                                    description: Use pass threshold
+                                    type: boolean
+                                    example: false
+                                pass_threshold_pct:
+                                    description: Only if the resulting throughput value is larger than or equal to the threshold
+                                    minimum: 0.0
+                                    maximum: 100.0
+                                    type: number
+                                    example: 100.0
+                                acceptable_loss_pct:
+                                    description: the acceptable loss in percent of the maximum rate
+                                    minimum: 0.0
+                                    maximum: 100.0
+                                    type: number
+                                    example: 1.0
+                                collect_latency_jitter:
+                                    description: Collect latency and jitter statistics
+                                    type: boolean
+                                    example: true
+                            required:
+                                - test_type
+                                - enabled
+                                - common_options
+                                - rate_iteration_options
+                                - use_pass_threshold
+                                - pass_threshold_pct
+                                - acceptable_loss_pct
+                                - collect_latency_jitter
+
+                        latency_test:
+                            description: Latency test config
+                            type: object
+                            properties:
+                                test_type:
+                                    $ref: "#/components/schemas/TestType"
+                                enabled:
+                                    description: Enable to use this test
+                                    type: boolean
+                                    example: true
+                                common_options:
+                                    $ref: "#/components/schemas/CommonOptions"
+                                rate_sweep_options:
+                                    $ref: "#/components/schemas/RateSweepOptions"
+                                latency_mode:
+                                    type: string
+                                    description: Latency mode string
+                                    enum:
+                                        - "first_to_last"
+                                        - "last_to_last"
+                                        - "first_to_first"
+                                        - "last_to_first"
+                                    example: "first_to_last"
+                                use_relative_to_throughput:
+                                    description: Use relative to throughput
+                                    type: boolean
+                                    example: true
+                            required:
+                                - test_type
+                                - enabled
+                                - common_options
+                                - rate_sweep_options
+                                - latency_mode
+                                - use_relative_to_throughput
+
+                        frame_loss_rate_test:
+                            description: Frame loss rate test config
+                            type: object
+                            properties:
+                                test_type:
+                                    $ref: "#/components/schemas/TestType"
+                                enabled:
+                                    description: Enable to use this test
+                                    type: boolean
+                                    example: true
+                                common_options:
+                                    $ref: "#/components/schemas/CommonOptions"
+                                rate_sweep_options:
+                                    $ref: "#/components/schemas/RateSweepOptions"
+                                use_gap_monitor:
+                                    description: Use gap monitor
+                                    type: boolean
+                                    example: false
+                                gap_monitor_start_microsec:
+                                    description: Specifies the time period that triggers the gap monitor to start (microseconds)
+                                    minimum: 0
+                                    type: integer
+                                    example: 100
+                                gap_monitor_stop_frames:
+                                    description: Specifies the number of frames to receive to stop the gap monitor
+                                    minimum: 0
+                                    type: integer
+                                    example: 100
+                                use_pass_fail_criteria:
+                                    description: Use pass/fail criteria
+                                    type: boolean
+                                    example: true
+                                acceptable_loss:
+                                    description: The acceptable loss value
+                                    type: number
+                                    example: 1000
+                                acceptable_loss_type:
+                                    type: string
+                                    description: Acceptable loss type
+                                    enum:
+                                        - "percent"
+                                        - "frames"
+                                    example: "frames"
+                            required:
+                                - test_type
+                                - enabled
+                                - common_options
+                                - rate_sweep_options
+                                - use_gap_monitor
+                                - gap_monitor_start_microsec
+                                - gap_monitor_stop_frames
+                                - use_pass_fail_criteria
+                                - acceptable_loss
+                                - acceptable_loss_type
+
+                        back_to_back_test:
+                            description: Back-to-back test config
+                            type: object
+                            properties:
+                                test_type:
+                                    $ref: "#/components/schemas/TestType"
+                                enabled:
+                                    description: Enable to use this test
+                                    type: boolean
+                                    example: true
+                                common_options:
+                                    $ref: "#/components/schemas/CommonOptions"
+                                rate_sweep_options:
+                                    $ref: "#/components/schemas/RateSweepOptions"
+                                burst_size_iteration_options:
+                                    description: Burst size iteration options
+                                    type: object
+                                    properties:
+                                        maximum_burst:
+                                            description: Maximum burst size
+                                            minimum: 1
+                                            type: integer
+                                            example: 100000
+                                        burst_resolution:
+                                            description: Burst resolution
+                                            minimum: 1
+                                            type: integer
+                                            example: 10
+                                    required:
+                                        - maximum_burst
+                                        - burst_resolution
+                            required:
+                                - test_type
+                                - enabled
+                                - common_options
+                                - rate_sweep_options
+                                - burst_size_iteration_options
+                    required:
+                        - throughput_test
+                        - latency_test
+                        - frame_loss_rate_test
+                        - back_to_back_test
+            required:
+                - test_configuration
+                - protocol_segments
+                - ports_configuration
+                - test_types_configuration
+
+        ActionOption:
+            title: Action Option
+            type: string
+            description: The action option for modifiers and value ranges
+            enum:
+                - "increment"
+                - "decrement"
+                - "random"
+            example: "increment"
+
+        2544PortConfiguration:
+            title: RFC2544 Port Configuration
+            description: Port Configuration for TS 2544
+            type: object
+            properties:
+                port_slot:
+                    description: Port slot
+                    type: integer
+                    example: 0
+                peer_config_slot:
+                    description: Peer config slot
+                    type: integer
+                    example: 1
+                port_group:
+                    $ref: "#/components/schemas/PortGroup"
+                port_speed_mode:
+                    $ref: "#/components/schemas/PortSpeedModeStr"
+                auto_neg_enabled:
+                    description: Auto-neg enabled
+                    type: boolean
+                    example: false
+                anlt_enabled:
+                    description: ANLT enabled
+                    type: boolean
+                    example: false
+                mdi_mdix_mode:
+                    $ref: "#/components/schemas/MdiMdixMode"
+                broadr_reach_mode:
+                    $ref: "#/components/schemas/BRRMode"
+                port_rate_cap_value:
+                    description: Port rate cap value
+                    type: number
+                    example: 1000
+                port_rate_cap_profile:
+                    $ref: "#/components/schemas/PortRateCapProfile"
+                port_rate_cap_unit:
+                    $ref: "#/components/schemas/PortRateCapUnit"
+                inter_frame_gap:
+                    description: Inter-frame gap
+                    type: number
+                    example: 20
+                speed_reduction_ppm:
+                    description: Speed reduction in ppm
+                    minimum: 0
+                    type: integer
+                    example: 0
+                pause_mode_enabled:
+                    description: Pause mode enabled
+                    type: boolean
+                    example: true
+                latency_offset_ms:
+                    description: Latency offset (ms)
+                    type: integer
+                    example: 100
+                fec_mode:
+                    $ref: "#/components/schemas/FECMode"
+                protocol_segment_profile_id:
+                    description: Protocl segment profile ID used by the port
+                    type: string
+                    format: uuid
+                    example: "eeac30ef-2ffe-4c9a-8232-adf590d92f30"
+                ip_gateway_mac_address:
+                    description: IP gateway MAC address
+                    type: string
+                    pattern: "[0-9A-F]{12}"
+                    example: "000000000000"
+                reply_arp_requests:
+                    description: Reply ARP requests
+                    type: boolean
+                    example: true
+                reply_ping_requests:
+                    description: Reply Ping requests
+                    type: boolean
+                    example: true
+                remote_loop_mac_address:
+                    description: Remote loop MAC address
+                    type: string
+                    pattern: "[0-9A-F]{12}"
+                    example: "000000000000"
+                ipv4_properties:
+                    $ref: "#/components/schemas/IPV4AddressProperties"
+                ipv6_properties:
+                    $ref: "#/components/schemas/IPV6AddressProperties"
+            required:
+                - port_slot
+                - peer_config_slot
+                - port_group
+                - port_speed_mode
+                - auto_neg_enabled
+                - anlt_enabled
+                - mdi_mdix_mode
+                - broadr_reach_mode
+                - port_rate_cap_value
+                - port_rate_cap_profile
+                - port_rate_cap_unit
+                - inter_frame_gap
+                - speed_reduction_ppm
+                - pause_mode_enabled
+                - latency_offset_ms
+                - fec_mode
+                - protocol_segment_profile_id
+                - ip_gateway_mac_address
+                - reply_arp_requests
+                - reply_ping_requests
+                - remote_loop_mac_address
+                - ipv4_properties
+                - ipv6_properties
+
+        PortGroup:
+            title: Port Group
+            type: string
+            description: Port group
+            enum:
+                - "east"
+                - "west"
+                - "undefined"
+            example: "east"
+
+        PortSpeedModeStr:
+            title: Port Speed Mode (String)
+            type: string
+            description: Port speed mode (str)
+            enum:
+                - "auto"
+                - "f100m"
+                - "f1g"
+                - "f2500m"
+                - "f5g"
+                - "f10g"
+                - "f100m1g"
+                - "f100m1g2500m"
+                - "f10m"
+                - "f40g"
+                - "f100g"
+                - "f10mhdx"
+                - "f100mhdx"
+                - "f10m100m"
+                - "f100m1g10g"
+                - "f25g"
+                - "f50g"
+                - "f200g"
+                - "f400g"
+                - "f800g"
+                - "f1600g"
+                - "unknown"
+            example: "auto"
+        
+        MdiMdixMode:
+            title: MDI/MDIX Mode
+            type: string
+            description: MDI/MDIX mode
+            enum:
+                - "auto"
+                - "mdi"
+                - "mdix"
+            example: "auto"
+
+        BRRMode:
+            title: BRR Mode
+            type: string
+            description: BroadR-Reach mode
+            enum:
+                - "master"
+                - "slave"
+            example: "master"
+
+        PortRateCapProfile:
+            title: Port Rate Cap Profile
+            type: string
+            description: Port rate cap profile
+            enum:
+                - "physical_port_rate"
+                - "custom_rate_cap"
+            example: "physical_port_rate"
+
+        PortRateCapUnit:
+            title: Port Rate Cap Unit
+            type: string
+            description: Port rate cap unit
+            enum:
+                - "1e9_bps"
+                - "1e6_bps"
+                - "1e3_bps"
+                - "bps"
+            example: "1e6_bps"
+
+        FECMode:
+            title: FEC Mode
+            type: string
+            description: FEC mode
+            enum:
+                - "on"
+                - "off"
+                - "fc_fec"
+            example: "on"
+
+        IPV4AddressProperties:
+            title: IPV4 Address Properties
+            type: object
+            properties:
+                address:
+                    description: The internal address
+                    default: "0.0.0.0"
+                    type: string
+                    format: ipv4
+                    example: "0.0.0.0"
+                routing_prefix:
+                    description: The internal routing prefix
+                    default: 24
+                    type: integer
+                    example: 24
+                public_address:
+                    description: The address used on the external side of the NAT
+                    default: "0.0.0.0"
+                    type: string
+                    format: ipv4
+                    example: "0.0.0.0"
+                public_routing_prefix:
+                    description: The routing prefix used on the external side of the NAT
+                    default: 24
+                    type: integer
+                    example: 24
+                gateway:
+                    description: The gateway address
+                    default: "0.0.0.0"
+                    type: string
+                    format: ipv4
+                    example: "0.0.0.0"
+                remote_loop_address:
+                    description: The remote loop address
+                    default: "0.0.0.0"
+                    type: string
+                    format: ipv4
+                    example: "0.0.0.0"
+                ip_version:
+                    description: IP version 4
+                    type: integer
+                    default: 4
+                    enum:
+                        - 4
+                    example: 4
+
+        IPV6AddressProperties:
+            title: IPV6 Address Properties
+            type: object
+            properties:
+                address:
+                    description: The internal address
+                    default: "::"
+                    type: string
+                    format: ipv6
+                    example: "::"
+                routing_prefix:
+                    description: The internal routing prefix
+                    default: 24
+                    type: integer
+                    example: 24
+                public_address:
+                    description: The address used on the external side of the NAT
+                    default: "::"
+                    type: string
+                    format: ipv6
+                    example: "::"
+                public_routing_prefix:
+                    description: The routing prefix used on the external side of the NAT
+                    default: 24
+                    type: integer
+                    example: 24
+                gateway:
+                    description: The gateway address
+                    default: "::"
+                    type: string
+                    format: ipv6
+                    example: "::"
+                remote_loop_address:
+                    description: The remote loop address
+                    default: "::"
+                    type: string
+                    format: ipv6
+                    example: "::"
+                ip_version:
+                    description: IP version 6
+                    type: integer
+                    default: 6
+                    enum:
+                        - 6
+                    example: 6
+
+        CommonOptions:
+            title: Common Options
+            type: object
+            properties:
+                duration_type:
+                    title: Teat Duration Type
+                    type: string
+                    description: Test duration type enums
+                    enum:
+                        - "time"
+                        - "frames"
+                    example: "time"
+                duration:
+                    description: The test duration value
+                    type: number
+                    example: 10
+                duration_unit:
+                    title: Test Duration Unit
+                    type: string
+                    description: Test duration unit enums
+                    enum:
+                        - "seconds"
+                        - "minutes"
+                        - "hours"
+                        - "frames"
+                        - "10e3_frames"
+                        - "10e6_frames"
+                        - "10e9_frames"
+                    example: "seconds"
+                repetitions:
+                    description: The number of times each test with the same parameters to repeat
+                    minimum: 1
+                    type: integer
+                    example: 1
+            required:
+                - repetitions
+                - duration_type
+                - duration_unit
+                - duration
+
+        TestType:
+            title: Test Type
+            type: string
+            description: Type of test case enums
+            enum:
+                - "throughput"
+                - "latency"
+                - "loss"
+                - "back_to_back"
+            example: "throughput"
+
+        RateSweepOptions:
+            title: Rate Sweep Options
+            description: Rate sweep options
+            type: object
+            properties:
+                start_value_pct:
+                    description: The start value in percent to use in the sweeping
+                    type: number
+                    minimum: 0.00
+                    maximum: 100.00
+                    example: 10.00
+                end_value_pct:
+                    description: The end value in percent to use in the sweeping
+                    type: number
+                    minimum: 0.00
+                    maximum: 100.00
+                    example: 100.00
+                step_value_pct:
+                    description: The step value in percent to use in the sweeping
+                    type: number
+                    minimum: 0.00
+                    maximum: 100.00
+                    example: 10.00
+            required:
+                - start_value_pct
+                - end_value_pct
+                - step_value_pct
+
+security:
+    - ApiKey: []
