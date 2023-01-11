@@ -1,6 +1,0 @@
-title: Outer Loop Mode
-type: string
-description: Loop mode enums
-enum:
-    - iterations
-    - packet_size

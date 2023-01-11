@@ -1,7 +1,0 @@
-title: Test Topology
-type: string
-description: Topology enums
-enum:
-    - pairs
-    - blocks
-    - mesh

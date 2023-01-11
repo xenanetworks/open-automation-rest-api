@@ -1,8 +1,0 @@
-title: Port Rate Cap Unit
-type: string
-description: Port rate cap unit enums
-enum:
-    - 1e9_bps
-    - 1e6_bps
-    - 1e3_bps
-    - bps

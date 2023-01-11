@@ -1,6 +1,0 @@
-title: Acceptable Loss Type
-type: string
-description: Acceptable loss type enums
-enum:
-    - percent
-    - frames

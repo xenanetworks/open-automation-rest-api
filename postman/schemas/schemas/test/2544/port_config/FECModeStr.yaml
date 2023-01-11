@@ -1,7 +1,0 @@
-title: FEC Mode Str
-type: string
-description: FEC mode string enums
-enum:
-    - on
-    - off
-    - fc_fec
