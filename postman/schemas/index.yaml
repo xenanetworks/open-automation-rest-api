@@ -1,223 +1,221 @@
-openapi: '3.0.0'
+openapi: "3.0.0"
+
 info:
-  version: '0.3.0'
-  title: 'Xena OpenAutomation REST API'
-  description: XOA REST API for test suite integration with third-party test automation framework
+    version: "0.4.0"
+    title: "Xena OpenAutomation REST API"
+    description: XOA REST API for test suite integration with third-party test automation framework
 
 servers:
-  - url: 'localhost'
+    - url: "localhost"
 
 paths:
-  /api/{{api_version}}:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    get:
-      summary: Get Worker Info
-      responses:
-        '200':
-          description: Worker Info Fetched
-          content:
-            application/json:
+    /api/{{api_version}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
               schema:
-                $ref: '#/components/schemas/NodeInfo'
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: Get Worker Info
+            responses:
+                "200":
+                    description: Worker Info Fetched
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/NodeInfo"
 
-  /api/{{api_version}}/ping:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    get:
-      summary: Ping Worker
-      responses:
-        '200':
-          description: Worker Responded
-          content:
-            application/json:
+    /api/{{api_version}}/ping:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
               schema:
-                $ref: '#/components/schemas/PongInfo'
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: Ping Worker
+            responses:
+                "200":
+                    description: Worker Responded
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/PongInfo"
 
-  /api/{{api_version}}/testers:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    get:
-      summary: List Testers
-      responses:
-        '200':
-          description: Tester List Returned
-          content:
-            application/json:
+    /api/{{api_version}}/testers:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
               schema:
-                $ref: '#/components/schemas/TesterList'
-    post:
-      summary: Add Tester
-      requestBody:
-        content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/TesterLoginCredential'
-      responses:
-        '201':
-          description: Tester Added
-          content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/TesterId'
-        '202':
-          description: Tester Already Added
-          content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/TesterId'
-        '422':
-          description: Bad Tester Information
+                  $ref: "#/components/schemas/APIVersion"
+        get:
+            summary: List Testers
+            responses:
+                "200":
+                    description: Tester List Returned
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TesterList"
+        post:
+            summary: Add Tester
+            responses:
+                "201":
+                    description: Tester Added
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TesterId"
+                "202":
+                    description: Tester Already Added
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TesterId"
+                "422":
+                    description: Bad Tester Information
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/TesterLoginCredential"
 
-  /api/{{api_version}}/testers/{{tester_id}}:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-      - name: tester_id
-        description: Tester identifier
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/TesterId'
-    delete:
-      summary: Remove Tester
-      responses:
-        '200':
-          description: Tester Removed
-
-  /api/{{api_version}}/testers/{{tester_id}}/control:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-      - name: tester_id
-        description: Tester identifier
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/TesterId'
-    post:
-      summary: Connect Tester
-      responses:
-        '200':
-          description: Tester Connected
-    delete:
-      summary: Disconnect Tester
-      responses:
-        '200':
-          description: Tester Disconnected
-
-  /api/{{api_version}}/test:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    post:
-      summary: Start Test
-      requestBody:
-        content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/TestData'
-      responses:
-        '200':
-          description: Test Started
-          content:
-            application/json:
+    /api/{{api_version}}/testers/{{tester_id}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
               schema:
-                $ref: '#/components/schemas/TestId'
-      
+                  $ref: "#/components/schemas/APIVersion"
+            - name: tester_id
+              description: Tester identifier
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TesterId"
+        delete:
+            summary: Remove Tester
+            responses:
+                "200":
+                    description: Tester Removed
 
-  /api/{{api_version}}/test/{{test_id}}:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-      - name: test_id
-        description: Test execution id
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/TestId'
-    delete:
-      summary: Stop Test
-      responses:
-        '200':
-          description: Test Stopped
-    patch:
-      summary: Toggle Pause Test
-      responses:
-        '200':
-          description: Test Paused/Resumed
-  
-  /api/{{api_version}}/subscribe:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    delete:
-      summary: Unsubscribe from Service
-      responses:
-        '200':
-          description: Unsubscribed
+    /api/{{api_version}}/testers/{{tester_id}}/control:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+            - name: tester_id
+              description: Tester identifier
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TesterId"
+        post:
+            summary: Connect Tester
+            responses:
+                "200":
+                    description: Tester Connected
+        delete:
+            summary: Disconnect Tester
+            responses:
+                "200":
+                    description: Tester Disconnected
 
-  /api/{{api_version}}/subscribe/resources:
-    parameters:
-      - name: api_version
-        description: API version
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/APIVersion'
-    post:
-      summary: Subscribe to Service
-      responses:
-        '201':
-          description: Subscription Created
-        '202':
-          description: Duplicated Subscription
-      requestBody:
-        content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/SubscriptionInfo'
+    /api/{{api_version}}/test:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        post:
+            summary: Start Test
+            responses:
+                "200":
+                    description: Test Started
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/TestId"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/TestData"
 
+    /api/{{api_version}}/test/{{test_id}}:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+            - name: test_id
+              description: Test execution id
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/TestId"
+        delete:
+            summary: Stop Test
+            responses:
+                "200":
+                    description: Test Stopped
+        patch:
+            summary: Toggle Pause Test
+            responses:
+                "200":
+                    description: Test Paused/Resumed
+
+    /api/{{api_version}}/subscribe:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        delete:
+            summary: Unsubscribe from Service
+            responses:
+                "200":
+                    description: Unsubscribed
+
+    /api/{{api_version}}/subscribe/resources:
+        parameters:
+            - name: api_version
+              description: API version
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/APIVersion"
+        post:
+            summary: Subscribe to Service
+            responses:
+                "201":
+                    description: Subscription Created
+                "202":
+                    description: Duplicated Subscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/SubscriptionInfo"
 
 components:
-  schemas:
-    $ref: "./schemas/_index.yaml"
-
+    schemas:
+        $ref: "./schemas/_index.yaml"
 
 security:
-  - ApiKey: []
+    - ApiKey: []

@@ -2,15 +2,15 @@ title: Flow Creation Config
 type: object
 properties:
     flow_creation_type:
-      description: Flow creation type
-      $ref: './FlowCreationType.yaml'
+        description: Flow creation type
+        $ref: "./FlowCreationType.yaml"
     tid_allocation_scope:
-      description: Test Payload ID allcation scope
-      $ref: './TidAllocationScope.yaml'
+        description: Test Payload ID allcation scope
+        $ref: "./TidAllocationScope.yaml"
     mac_base_address:
-      description: MAC base address
-      type: string
-      pattern: "[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}"
+        description: MAC base address
+        type: string
+        pattern: "[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}"
 required:
     - flow_creation_type
     - tid_allocation_scope

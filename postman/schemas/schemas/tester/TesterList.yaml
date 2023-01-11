@@ -2,4 +2,4 @@ title: Tester List
 description: List of testers
 type: array
 items:
-  $ref: './TesterObject.yaml'
+    $ref: "./TesterObject.yaml"

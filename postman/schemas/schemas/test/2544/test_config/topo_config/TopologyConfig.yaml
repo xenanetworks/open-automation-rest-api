@@ -2,9 +2,9 @@ title: Topology Config
 type: object
 properties:
     topology:
-      $ref: './TestTopology.yaml'
+        $ref: "./TestTopology.yaml"
     direction:
-      $ref: './TrafficDirection.yaml'
+        $ref: "./TrafficDirection.yaml"
 required:
-  - topology
-  - direction
+    - topology
+    - direction

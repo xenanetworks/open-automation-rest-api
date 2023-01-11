@@ -1,36 +1,36 @@
 title: IPV4 Address Properties
 type: object
 properties:
-  address:
-    description: The internal address
-    default: 0.0.0.0
-    type: string
-    format: ipv4
-  routing_prefix:
-    description: The internal routing prefix
-    default: 24
-    type: integer
-  public_address:
-    description: The address used on the external side of the NAT
-    default: 0.0.0.0
-    type: string
-    format: ipv4
-  public_routing_prefix:
-    description: The routing prefix used on the external side of the NAT
-    default: 24
-    type: integer
-  gateway:
-    description: The gateway address
-    default: 0.0.0.0
-    type: string
-    format: ipv4
-  remote_loop_address:
-    description: The remote loop address
-    default: 0.0.0.0
-    type: string
-    format: ipv4
-  ip_version:
-    description: The version of the IP
-    default: 4
-    allOf:
-    - $ref: '/IPVersion.yaml'
+    address:
+        description: The internal address
+        default: 0.0.0.0
+        type: string
+        format: ipv4
+    routing_prefix:
+        description: The internal routing prefix
+        default: 24
+        type: integer
+    public_address:
+        description: The address used on the external side of the NAT
+        default: 0.0.0.0
+        type: string
+        format: ipv4
+    public_routing_prefix:
+        description: The routing prefix used on the external side of the NAT
+        default: 24
+        type: integer
+    gateway:
+        description: The gateway address
+        default: 0.0.0.0
+        type: string
+        format: ipv4
+    remote_loop_address:
+        description: The remote loop address
+        default: 0.0.0.0
+        type: string
+        format: ipv4
+    ip_version:
+        description: The version of the IP
+        default: 4
+        allOf:
+            - $ref: "/IPVersion.yaml"

@@ -1,18 +1,18 @@
 title: Toggle Port Sync Config
 type: object
 properties:
-  toggle_port_sync:
-    description: Should toggle port sync?
-    type: boolean
-  sync_off_duration:
-    description: The duration of port sync off (ms)
-    minimum: 1000
-    type: integer
-  delay_after_sync_on:
-    description: Delay After Sync On (ms)
-    minimum: 1000
-    type: integer
+    toggle_port_sync:
+        description: Should toggle port sync?
+        type: boolean
+    sync_off_duration:
+        description: The duration of port sync off (ms)
+        minimum: 1000
+        type: integer
+    delay_after_sync_on:
+        description: Delay After Sync On (ms)
+        minimum: 1000
+        type: integer
 required:
-  - toggle_port_sync
-  - sync_off_duration
-  - delay_after_sync_on
+    - toggle_port_sync
+    - sync_off_duration
+    - delay_after_sync_on

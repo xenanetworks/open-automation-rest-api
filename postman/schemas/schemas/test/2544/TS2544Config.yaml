@@ -1,22 +1,22 @@
 title: TS 2544 Config
 type: object
 properties:
-  test_configuration:
-    $ref: './test_config/TestConfiguration.yaml'
-  protocol_segments:
-    title: Protocol Segments
-    type: array
-    items:
-      $ref: './segment_profile_config/ProtocolSegmentProfileConfig.yaml'
-  ports_configuration:
-    title: Ports Configuration
-    type: array
-    items:
-      $ref: './port_config/PortConfiguration.yaml'
-  test_types_configuration:
-    $ref: './test_type_config/TestTypesConfiguration.yaml'
+    test_configuration:
+        $ref: "./test_config/TestConfiguration.yaml"
+    protocol_segments:
+        title: Protocol Segments
+        type: array
+        items:
+            $ref: "./segment_profile_config/ProtocolSegmentProfileConfig.yaml"
+    ports_configuration:
+        title: Ports Configuration
+        type: array
+        items:
+            $ref: "./port_config/PortConfiguration.yaml"
+    test_types_configuration:
+        $ref: "./test_type_config/TestTypesConfiguration.yaml"
 required:
-  - test_configuration
-  - protocol_segments
-  - ports_configuration
-  - test_types_configuration
+    - test_configuration
+    - protocol_segments
+    - ports_configuration
+    - test_types_configuration

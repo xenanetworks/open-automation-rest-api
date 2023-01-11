@@ -1,18 +1,18 @@
 APIVersion:
-  $ref: "./APIVersion.yaml"
+    $ref: "./APIVersion.yaml"
 NodeId:
-  $ref: "./node/NodeId.yaml"
+    $ref: "./node/NodeId.yaml"
 TestId:
-  $ref: "./test/TestId.yaml"
+    $ref: "./test/TestId.yaml"
 NodeInfo:
-  $ref: "./node/NodeInfo.yaml"
+    $ref: "./node/NodeInfo.yaml"
 PongInfo:
-  $ref: "./node/PongInfo.yaml"
+    $ref: "./node/PongInfo.yaml"
 TesterLoginCredential:
-  $ref: "./tester/TesterLoginCredential.yaml"
+    $ref: "./tester/TesterLoginCredential.yaml"
 SubscriptionInfo:
-  $ref: "./SubscriptionInfo.yaml"
+    $ref: "./SubscriptionInfo.yaml"
 TesterList:
-  $ref: "./tester/TesterList.yaml"
+    $ref: "./tester/TesterList.yaml"
 TestData:
-  $ref: "./test/TestData.yaml"
+    $ref: "./test/TestData.yaml"

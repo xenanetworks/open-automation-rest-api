@@ -1,18 +1,18 @@
 title: Flow-Based Learning Options
 type: object
 properties:
-  use_flow_based_learning_preamble:
-    description: Use flow-based learning preamble
-    type: boolean
-  flow_based_learning_frame_count:
-    description: Flow-based learning frames to send
-    minimum: 1
-    type: integer
-  delay_after_flow_based_learning:
-    description: The delay after flow-based learning is finished (ms)
-    minimum: 50
-    type: integer
+    use_flow_based_learning_preamble:
+        description: Use flow-based learning preamble
+        type: boolean
+    flow_based_learning_frame_count:
+        description: Flow-based learning frames to send
+        minimum: 1
+        type: integer
+    delay_after_flow_based_learning:
+        description: The delay after flow-based learning is finished (ms)
+        minimum: 50
+        type: integer
 required:
-  - use_flow_based_learning_preamble
-  - flow_based_learning_frame_count
-  - delay_after_flow_based_learning
+    - use_flow_based_learning_preamble
+    - flow_based_learning_frame_count
+    - delay_after_flow_based_learning

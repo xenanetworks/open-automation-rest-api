@@ -2,14 +2,14 @@ title: Burst Size Iteration Options
 description: Burst size iteration options
 type: object
 properties:
-  maximum_burst:
-    description: Maximum burst size
-    minimum: 1
-    type: integer
-  burst_resolution:
-    description: Burst resolution
-    minimum: 1
-    type: integer
+    maximum_burst:
+        description: Maximum burst size
+        minimum: 1
+        type: integer
+    burst_resolution:
+        description: Burst resolution
+        minimum: 1
+        type: integer
 required:
-  - maximum_burst
-  - burst_resolution
+    - maximum_burst
+    - burst_resolution

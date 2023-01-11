@@ -1,15 +1,15 @@
 title: Protocol Segment
 type: object
 properties:
-  type:
-    $ref: './SegmentType.yaml'
-  fields:
-    type: array
-    items:
-      $ref: './SegmentField.yaml'
-  checksum_offset:
-    type: integer
+    type:
+        $ref: "./SegmentType.yaml"
+    fields:
+        type: array
+        items:
+            $ref: "./SegmentField.yaml"
+    checksum_offset:
+        type: integer
 required:
-  - type
-  - fields
-  - checksum_offset
+    - type
+    - fields
+    - checksum_offset

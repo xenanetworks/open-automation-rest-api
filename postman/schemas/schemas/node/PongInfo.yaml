@@ -1,12 +1,12 @@
-type: object 
+type: object
 required:
-  - pong
-  - timestamp
+    - pong
+    - timestamp
 properties:
-  pong:
-    $ref: './NodeId.yaml'
-  timestamp:
-    description: Timestamp of the response 
-    type: string
-    format: date-time
-    example: '2022-12-08T23:42:31.947237'
+    pong:
+        $ref: "./NodeId.yaml"
+    timestamp:
+        description: Timestamp of the response
+        type: string
+        format: date-time
+        example: "2022-12-08T23:42:31.947237"

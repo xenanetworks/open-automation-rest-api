@@ -2,34 +2,34 @@ title: Rate Iteration Options
 description: Rate iteration options
 type: object
 properties:
-  search_type:
-    $ref: './BinarySearchType.yaml'
-  result_scope:
-    $ref: './RateResultScopeType.yaml'
-  initial_value_pct:
-    description: The initial value in percent to use in the iterative search
-    minimum: 0.0
-    maximum: 100.0
-    type: number
-  maximum_value_pct:
-    description: The maximum value in percent to use in the iterative search
-    minimum: 0.0
-    maximum: 100.0
-    type: number
-  minimum_value_pct:
-    description: The minimum value in percent to use in the iterative search
-    minimum: 0.0
-    maximum: 100.0
-    type: number
-  value_resolution_pct:
-    description: The resolution value in percent to use in the iterative search
-    minimum: 0.0
-    maximum: 100.0
-    type: number
+    search_type:
+        $ref: "./BinarySearchType.yaml"
+    result_scope:
+        $ref: "./RateResultScopeType.yaml"
+    initial_value_pct:
+        description: The initial value in percent to use in the iterative search
+        minimum: 0.0
+        maximum: 100.0
+        type: number
+    maximum_value_pct:
+        description: The maximum value in percent to use in the iterative search
+        minimum: 0.0
+        maximum: 100.0
+        type: number
+    minimum_value_pct:
+        description: The minimum value in percent to use in the iterative search
+        minimum: 0.0
+        maximum: 100.0
+        type: number
+    value_resolution_pct:
+        description: The resolution value in percent to use in the iterative search
+        minimum: 0.0
+        maximum: 100.0
+        type: number
 required:
-  - search_type
-  - result_scope
-  - initial_value_pct
-  - maximum_value_pct
-  - minimum_value_pct
-  - value_resolution_pct
+    - search_type
+    - result_scope
+    - initial_value_pct
+    - maximum_value_pct
+    - minimum_value_pct
+    - value_resolution_pct

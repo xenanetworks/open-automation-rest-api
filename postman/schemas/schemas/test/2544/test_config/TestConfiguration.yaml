@@ -2,16 +2,16 @@ title: Test Configuration
 description: RFC-2544 test suite configuration
 type: object
 properties:
-  topology_config:
-    $ref: './topo_config/TopologyConfig.yaml'
-  frame_size_config:
-    $ref: './frame_size_payload_config/FrameSizePayloadConfig.yaml'
-  multi_stream_config:
-    $ref: './multi_stream_config/MultiStreamConfig.yaml'
-  test_execution_config:
-    $ref: './test_execution_config/TestExecutionConfig.yaml'
+    topology_config:
+        $ref: "./topo_config/TopologyConfig.yaml"
+    frame_size_config:
+        $ref: "./frame_size_payload_config/FrameSizePayloadConfig.yaml"
+    multi_stream_config:
+        $ref: "./multi_stream_config/MultiStreamConfig.yaml"
+    test_execution_config:
+        $ref: "./test_execution_config/TestExecutionConfig.yaml"
 required:
-  - topology_config
-  - frame_size_config
-  - multi_stream_config
-  - test_execution_config
+    - topology_config
+    - frame_size_config
+    - multi_stream_config
+    - test_execution_config

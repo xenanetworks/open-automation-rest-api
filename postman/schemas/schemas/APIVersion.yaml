@@ -1,7 +1,6 @@
-
 description: API version haha
 type: string
-default: 'v1'
+default: "v1"
 enum:
-    - 'v1'
-example: 'v1'
+    - "v1"
+example: "v1"

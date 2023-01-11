@@ -1,33 +1,33 @@
 title: Throughput Test Config
 type: object
 properties:
-  test_type:
-    $ref: '../TestType.yaml'
-  enabled:
-    description: Enable to use this test
-    type: boolean
-  common_options:
-    $ref: '../CommonOptions.yaml'
-  rate_iteration_options:
-    $ref: './RateIterationOptions.yaml'
-  use_pass_threshold:
-    description: Use pass threshold
-    type: boolean
-  pass_threshold_pct:
-    description: Only if the resulting throughput value is larger than or equal to the threshold
-    type: number
-  acceptable_loss_pct:
-    description: the acceptable loss in percent of the maximum rate
-    type: number
-  collect_latency_jitter:
-    description: Collect latency and jitter statistics
-    type: boolean
+    test_type:
+        $ref: "../TestType.yaml"
+    enabled:
+        description: Enable to use this test
+        type: boolean
+    common_options:
+        $ref: "../CommonOptions.yaml"
+    rate_iteration_options:
+        $ref: "./RateIterationOptions.yaml"
+    use_pass_threshold:
+        description: Use pass threshold
+        type: boolean
+    pass_threshold_pct:
+        description: Only if the resulting throughput value is larger than or equal to the threshold
+        type: number
+    acceptable_loss_pct:
+        description: the acceptable loss in percent of the maximum rate
+        type: number
+    collect_latency_jitter:
+        description: Collect latency and jitter statistics
+        type: boolean
 required:
-  - test_type
-  - enabled
-  - common_options
-  - rate_iteration_options
-  - use_pass_threshold
-  - pass_threshold_pct
-  - acceptable_loss_pct
-  - collect_latency_jitter
+    - test_type
+    - enabled
+    - common_options
+    - rate_iteration_options
+    - use_pass_threshold
+    - pass_threshold_pct
+    - acceptable_loss_pct
+    - collect_latency_jitter
