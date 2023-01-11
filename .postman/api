@@ -5,7 +5,7 @@ id = 8ea538ce-04e4-4808-9624-94e057ca76cc
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"6625866-0be4fa64-cb39-4e68-b94a-93de2d347e8a","path":"XOA API Examples.json","metaData":{}}
+files[] = {"id":"6625866-fe3f2f80-27eb-411a-bccd-8a51cdb4718a","path":"XOA API Examples.json","metaData":{}}
 
 [relations.collections.metaData]
 
