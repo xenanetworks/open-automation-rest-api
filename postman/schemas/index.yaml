@@ -356,6 +356,7 @@ components:
                 - 19
                 - 20
                 - 255
+            example: 5
         PortId:
             title: Port ID
             description: Unique identifier of a port by appending the module index and port index to the tester id
@@ -369,6 +370,7 @@ components:
                 id:
                     $ref: "#/components/schemas/PortId"
                 index:
+                    description: Index of the port
                     type: integer
                     minimum: 0
                     example: 0
@@ -508,6 +510,7 @@ components:
                     $ref: "#/components/schemas/ModuleId"
                 index:
                     description: Index of the module
+                    minimum: 0
                     type: integer
                     example: 0
                 model:
@@ -615,10 +618,12 @@ components:
                 tester_id:
                     $ref: "#/components/schemas/TesterId"
                 module_index:
+                    description: Index of the module
                     type: integer
                     minimum: 0
                     example: 1
                 port_index:
+                    description: Index of the port
                     type: integer
                     minimum: 0
                     example: 2
