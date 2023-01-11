@@ -1,0 +1,40 @@
+title: Test Data
+description: The complete test configuration data 
+type: object
+properties:
+  username:
+    description: The username
+    type: string
+    example: 'OpenAutomation'
+  test_name:
+    description: Name of the test that this confiugration is for.
+    type: string
+    example: 'RFC-2544'
+    enum:
+      - RFC-2544
+      - RFC-2889
+      - RFC-3918
+      - ANLT
+  port_identities:
+    description: To identify where the ports are physically located
+    type: array
+    items:
+      $ref: './PortIdentity.yaml'
+  destination:
+    description: The URL of the endpoint for the Worker to send statistics, alerts, notifications, etc.
+    type: string
+    format: url
+    example: 'https://fb3c8b2e-b22f-47aa-8122-15d635ab6d0d.mock.pstmn.io/temp'
+  config:
+    description: The configuration of the test suite
+    type: object
+    oneOf:
+      - $ref: './2544/TS2544Config.yaml'
+      - $ref: './anlt/TSANLTConfig.yaml'
+required:
+  - username
+  - test_name
+  - port_identities
+  - destination
+  - config
+      

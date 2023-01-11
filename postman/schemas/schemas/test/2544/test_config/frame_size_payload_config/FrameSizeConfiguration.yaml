@@ -1,0 +1,63 @@
+title: Frame Size Configuration
+type: object
+properties:
+  packet_size_type:
+    $ref: './FrameSizeType.yaml'
+  custom_packet_sizes:
+    description: Custom packet sizes (byte)
+    type: array
+    items:
+      type: integer
+  fixed_packet_start_size:
+    description: The start value for fixed packet size (byte)
+    type: integer
+  fixed_packet_end_size:
+    description: The end value for fixed packet size (byte)
+    minimum: 0
+    type: integer
+  fixed_packet_step_size:
+    description: The step value for fixed packet size (byte)
+    type: integer
+  varying_packet_min_size:
+    description: The minimum value for varying packet size (byte)
+    type: integer
+  varying_packet_max_size:
+    description: The maximum value for varying packet size (byte)
+    type: integer
+  mixed_length_config:
+    $ref: './FrameSizesOptions.yaml'
+  mixed_sizes_weights:
+    description: The weight values for mixed packet sizes
+    default:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 57
+      - 3
+      - 5
+      - 1
+      - 2
+      - 5
+      - 1
+      - 4
+      - 4
+      - 18
+      - 0
+      - 0
+    type: array
+    min_items: 16
+    max_items: 16
+    items:
+      type: integer
+      minimum: 0
+required:
+  - packet_size_type
+  - custom_packet_sizes
+  - fixed_packet_start_size
+  - fixed_packet_end_size
+  - fixed_packet_step_size
+  - varying_packet_min_size
+  - varying_packet_max_size
+  - mixed_length_config
+  - mixed_sizes_weights

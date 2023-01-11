@@ -1,4 +1,0 @@
-description: List of modules on a tester
-type: array
-items:
-  $ref: './ModuleObject.yaml'

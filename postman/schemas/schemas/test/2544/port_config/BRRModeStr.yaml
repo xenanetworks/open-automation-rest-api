@@ -1,0 +1,6 @@
+title: BRR Mode
+type: string
+description: BroadR-Reach mode enums
+enum:
+    - master
+    - slave

@@ -1,7 +1,0 @@
-title: TrafficDirection
-type: string
-description: Traffic direction enums
-enum:
-    - east_to_west
-    - west_to_east
-    - bidirectional

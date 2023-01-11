@@ -1,8 +1,0 @@
-title: PluginModelANLT
-type: object
-properties:
-  dummy:
-    type: string
-    example: 'Hello World'
-required:
-  - dummy

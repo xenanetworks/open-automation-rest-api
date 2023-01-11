@@ -1,0 +1,5 @@
+title: Module ID
+description: Unique identifier of a module on a tester by appending the module index to the tester id
+type: string
+pattern: '[0-9a-f]{32}-[0-9]{1}'
+example: '598e592ceb28ce73b95d270a1b028ff3-0'

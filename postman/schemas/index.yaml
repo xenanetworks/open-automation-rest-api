@@ -63,6 +63,11 @@ paths:
                 $ref: '#/components/schemas/TesterList'
     post:
       summary: Add Tester
+      requestBody:
+        content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/TesterLoginCredential'
       responses:
         '201':
           description: Tester Added
@@ -77,7 +82,7 @@ paths:
                 schema:
                   $ref: '#/components/schemas/TesterId'
         '422':
-          description: Bad tester info
+          description: Bad Tester Information
 
   /api/{{api_version}}/testers/{{tester_id}}:
     parameters:
@@ -134,6 +139,11 @@ paths:
           $ref: '#/components/schemas/APIVersion'
     post:
       summary: Start Test
+      requestBody:
+        content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/TestData'
       responses:
         '200':
           description: Test Started
@@ -141,11 +151,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TestId'
-      requestBody:
-        content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/TestConfiguration'
+      
 
   /api/{{api_version}}/test/{{test_id}}:
     parameters:
@@ -181,7 +187,7 @@ paths:
         schema:
           $ref: '#/components/schemas/APIVersion'
     delete:
-      summary: Unsubscribe
+      summary: Unsubscribe from Service
       responses:
         '200':
           description: Unsubscribed

@@ -1,0 +1,7 @@
+title: MDI/MDIX Mode
+type: string
+description: MDI/MDIX mode enums
+enum:
+    - auto
+    - mdi
+    - mdix

@@ -1,4 +1,0 @@
-description: The unique identifier of a test
-type: string
-format: uuid
-example: '88d683e1-0ee5-482d-869c-62d98800acd1'

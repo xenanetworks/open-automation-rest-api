@@ -1,6 +1,0 @@
-title: RateResultScopeType
-type: string
-description: Result Scope type enums
-enum:
-    - common_result
-    - per_source_port_result

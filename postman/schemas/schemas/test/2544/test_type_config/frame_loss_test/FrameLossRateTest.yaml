@@ -1,0 +1,42 @@
+title: Frame Loss Rate Test Config
+type: object
+properties:
+  test_type:
+    $ref: '../TestType.yaml'
+  enabled:
+    description: Enable to use this test
+    type: boolean
+  common_options:
+    $ref: '../CommonOptions.yaml'
+  rate_sweep_options:
+    $ref: '../RateSweepOptions.yaml'
+  use_gap_monitor:
+    description: Use gap monitor
+    type: boolean
+  gap_monitor_start_microsec:
+    description: Specifies the time period that triggers the gap monitor to start (microseconds)
+    minimum: 0
+    type: integer
+  gap_monitor_stop_frames:
+    description: Specifies the number of frames to receive to stop the gap monitor
+    minimum: 0
+    type: integer
+  use_pass_fail_criteria:
+    description: Use pass/fail criteria
+    type: boolean
+  acceptable_loss:
+    description: The acceptable loss value
+    type: number
+  acceptable_loss_type:
+    $ref: './AcceptableLossType.yaml'
+required:
+  - test_type
+  - enabled
+  - common_options
+  - rate_sweep_options
+  - use_gap_monitor
+  - gap_monitor_start_microsec
+  - gap_monitor_stop_frames
+  - use_pass_fail_criteria
+  - acceptable_loss
+  - acceptable_loss_type

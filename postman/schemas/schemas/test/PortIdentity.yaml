@@ -1,0 +1,13 @@
+title: Port Identity
+type: object
+properties:
+  tester_id:
+    $ref: '../tester/TesterId.yaml'
+  module_index:
+    type: integer
+  port_index:
+    type: integer
+required:
+  - tester_id
+  - module_index
+  - port_index

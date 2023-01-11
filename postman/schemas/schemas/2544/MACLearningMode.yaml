@@ -1,7 +1,0 @@
-title: MACLearningMode
-type: string
-description: MAC Learning mode enums
-enum:
-    - never
-    - once
-    - every_trial

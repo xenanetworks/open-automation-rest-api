@@ -1,0 +1,24 @@
+title: Frame Sizes Options
+type: object
+properties:
+  field_0:
+    description: The packet size value on #0 position
+    default: 56
+    type: integer
+  field_1:
+    description: The packet size value on #1 position
+    default: 60
+    type: integer
+  field_14:
+    description: The packet size value on #14 position
+    default: 9216
+    type: integer
+  field_15:
+    description: The packet size value on #15 position
+    default: 16360
+    type: integer
+required:
+  - field_0
+  - field_1
+  - field_14
+  - field_15

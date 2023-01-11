@@ -1,0 +1,5 @@
+title: Speed Mode
+description: The speed mode supported by the port
+type: integer
+minimum: 0
+maximum: 255

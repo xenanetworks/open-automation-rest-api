@@ -1,0 +1,7 @@
+title: TID Allocation Scope
+type: string
+description: Test Payload ID allocation scope enums
+enum:
+    - config_scope
+    - port_scope
+    - source_port_id

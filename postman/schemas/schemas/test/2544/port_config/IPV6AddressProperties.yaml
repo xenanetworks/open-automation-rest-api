@@ -1,0 +1,36 @@
+title: IPV6 Address Properties
+type: object
+properties:
+  address:
+    description: The internal address
+    default: '::'
+    type: string
+    format: ipv6
+  routing_prefix:
+    description: The internal routing prefix
+    default: 24
+    type: integer
+  public_address:
+    description: The address used on the external side of the NAT
+    default: '::'
+    type: string
+    format: ipv6
+  public_routing_prefix:
+    description: The routing prefix used on the external side of the NAT
+    default: 24
+    type: integer
+  gateway:
+    description: The gateway address
+    default: '::'
+    type: string
+    format: ipv6
+  remote_loop_address:
+    description: The remote loop address
+    default: '::'
+    type: string
+    format: ipv6
+  ip_version:
+    description: The version of the IP
+    default: 6
+    allOf:
+    - $ref: './IPVersion.yaml'

@@ -1,0 +1,6 @@
+title: Teat Duration Type
+type: string
+description: Test duration type enums
+enum:
+    - time
+    - frames

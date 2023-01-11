@@ -1,46 +1,18 @@
 APIVersion:
   $ref: "./APIVersion.yaml"
 NodeId:
-  $ref: "./NodeId.yaml"
-WorkerId:
-  $ref: "./WorkerId.yaml"
-SenderId:
-  $ref: "./SenderId.yaml"
-TesterId:
-  $ref: "./TesterId.yaml"
-ModuleId:
-  $ref: "./ModuleId.yaml"
-PortId:
-  $ref: "./PortId.yaml"
+  $ref: "./node/NodeId.yaml"
 TestId:
-  $ref: "./TestId.yaml"
+  $ref: "./test/TestId.yaml"
 NodeInfo:
-  $ref: "./NodeInfo.yaml"
+  $ref: "./node/NodeInfo.yaml"
 PongInfo:
-  $ref: "./PongInfo.yaml"
-ProductType:
-  $ref: "./ProductType.yaml"
+  $ref: "./node/PongInfo.yaml"
 TesterLoginCredential:
-  $ref: "./TesterLoginCredential.yaml"
-ServiceType:
-  $ref: "./ServiceType.yaml"
+  $ref: "./tester/TesterLoginCredential.yaml"
 SubscriptionInfo:
   $ref: "./SubscriptionInfo.yaml"
-TesterObject:
-  $ref: "./TesterObject.yaml"
-ModuleObject:
-  $ref: "./ModuleObject.yaml"
-PortObject:
-  $ref: "./PortObject.yaml"
-SpeedModeObject:
-  $ref: "./SpeedMode.yaml"
-PortList:
-  $ref: "./PortList.yaml"
-ModuleList:
-  $ref: "./ModuleList.yaml"
 TesterList:
-  $ref: "./TesterList.yaml"
-PortIdentityObject:
-  $ref: "./PortIdentity.yaml"
-TestConfiguration:
-  $ref: "./TestConfiguration.yaml"
+  $ref: "./tester/TesterList.yaml"
+TestData:
+  $ref: "./test/TestData.yaml"

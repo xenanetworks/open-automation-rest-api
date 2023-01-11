@@ -1,7 +1,0 @@
-title: PortGroup
-type: string
-description: Port group enums
-enum:
-    - east
-    - west
-    - undefined

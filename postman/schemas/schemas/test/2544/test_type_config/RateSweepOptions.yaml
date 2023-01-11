@@ -1,0 +1,23 @@
+title: Rate Sweep Options
+description: Rate sweep options
+type: object
+properties:
+  start_value_pct:
+    description: The start value in percent to use in the sweeping
+    type: number
+    minimum: 0.00
+    maximum: 100.00
+  end_value_pct:
+    description: The end value in percent to use in the sweeping
+    type: number
+    minimum: 0.00
+    maximum: 100.00
+  step_value_pct:
+    description: The step value in percent to use in the sweeping
+    type: number
+    minimum: 0.00
+    maximum: 100.00
+required:
+  - start_value_pct
+  - end_value_pct
+  - step_value_pct

@@ -1,0 +1,5 @@
+title: Port List
+description: List of ports on a module
+type: array
+items:
+  $ref: './PortObject.yaml'

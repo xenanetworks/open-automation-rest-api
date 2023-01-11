@@ -1,0 +1,20 @@
+title: Back-To-Back Test Config
+type: object
+properties:
+  test_type:
+    $ref: '../TestType.yaml'
+  enabled:
+    description: Enable to use this test
+    type: boolean
+  common_options:
+    $ref: '../CommonOptions.yaml'
+  rate_sweep_options:
+    $ref: './RateSweepOptions.yaml'
+  burst_size_iteration_options:
+    $ref: './BurstSizeIterationOptions.yaml'
+required:
+  - test_type
+  - enabled
+  - common_options
+  - rate_sweep_options
+  - burst_size_iteration_options

@@ -1,9 +1,9 @@
 type: object
 properties:
   worker_id:
-    $ref: './WorkerId.yaml'
+    $ref: './node/WorkerId.yaml'
   sender_id:
-    $ref: './SenderId.yaml'
+    $ref: './node/SenderId.yaml'
   service_name:
     $ref: './ServiceType.yaml'
   destination:

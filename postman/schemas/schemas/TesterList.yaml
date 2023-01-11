@@ -1,7 +1,0 @@
-description: List of testers
-type: object
-properties:
-  tester_list:
-    type: array
-    items:
-      $ref: './TesterObject.yaml'

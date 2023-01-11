@@ -1,6 +1,0 @@
-title: BinarySearchType
-type: string
-description: Binary search type enums
-enum:
-    - binary_search
-    - fast_binary_search

@@ -1,6 +1,0 @@
-title: IPVersion
-type: string
-description: IP version enums
-enum:
-    - 4
-    - 6
