@@ -78,7 +78,6 @@ files[] = {"path":"schemas/test/2544/test_type_config/throughput_test/RateIterat
 files[] = {"path":"schemas/test/2544/test_type_config/throughput_test/RateResultScopeType.yaml","metaData":{}}
 files[] = {"path":"schemas/test/2544/test_type_config/throughput_test/ThroughputTest.yaml","metaData":{}}
 files[] = {"path":"schemas/test/2544/TS2544Config.yaml","metaData":{}}
-files[] = {"path":"schemas/test/anlt/TSANLTConfig.yaml","metaData":{}}
 files[] = {"path":"schemas/test/PortIdentity.yaml","metaData":{}}
 files[] = {"path":"schemas/test/TestData.yaml","metaData":{}}
 files[] = {"path":"schemas/test/TestId.yaml","metaData":{}}

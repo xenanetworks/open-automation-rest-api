@@ -30,7 +30,6 @@ properties:
     type: object
     oneOf:
       - $ref: './2544/TS2544Config.yaml'
-      - $ref: './anlt/TSANLTConfig.yaml'
 required:
   - username
   - test_name
