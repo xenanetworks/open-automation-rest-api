@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 
 info:
-    version: "0.4.0"
+    version: "0.4.1"
     title: "Xena OpenAutomation REST API"
     description: XOA REST API for test suite integration with third-party test automation framework
 
@@ -587,7 +587,7 @@ components:
                     description: List of modules on a tester
                     type: array
                     items:
-                        $ref: "#/components/schemas/ModulObject"
+                        $ref: "#/components/schemas/ModuleObject"
                 keep_disconnected:
                     description: Should the Worker keep the tester disconnected after reboot
                     type: boolean
