@@ -805,6 +805,7 @@ components:
                                         mixed_length_config:
                                             description: Mixed length configuration
                                             type: object
+                                            nullable: true
                                             properties:
                                                 field_0:
                                                     description: The packet size value on #0 position
@@ -836,6 +837,7 @@ components:
                                             type: array
                                             minItems: 16
                                             maxItems: 16
+                                            nullable: true
                                             items:
                                                 type: integer
                                                 minimum: 0
@@ -1371,10 +1373,8 @@ components:
                             description: Throughput test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1428,18 +1428,18 @@ components:
                                         - maximum_value_pct
                                         - minimum_value_pct
                                         - value_resolution_pct
-                                use_pass_threshold:
-                                    description: Use pass threshold
+                                use_pass_criteria:
+                                    description: If true, the test will use "pass_criteria_throughput_pct" as the pass criteria
                                     type: boolean
                                     example: false
-                                pass_threshold_pct:
-                                    description: Only if the resulting throughput value is larger than or equal to the threshold
+                                pass_criteria_throughput_pct:
+                                    description: The test result will be shown as "Pass" only if the resulting throughput value (pct) is larger than or equal to the specified value
                                     minimum: 0.0
                                     maximum: 100.0
                                     type: number
                                     example: 100.0
                                 acceptable_loss_pct:
-                                    description: the acceptable loss in percent of the maximum rate
+                                    description: The acceptable loss in percent of the maximum rate used in the binary search to determine if to increase or decrease the searching rate
                                     minimum: 0.0
                                     maximum: 100.0
                                     type: number
@@ -1449,12 +1449,11 @@ components:
                                     type: boolean
                                     example: true
                             required:
-                                - test_type
                                 - enabled
                                 - common_options
                                 - rate_iteration_options
-                                - use_pass_threshold
-                                - pass_threshold_pct
+                                - use_pass_criteria
+                                - pass_criteria_throughput_pct
                                 - acceptable_loss_pct
                                 - collect_latency_jitter
 
@@ -1462,10 +1461,8 @@ components:
                             description: Latency test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1474,7 +1471,7 @@ components:
                                     $ref: "#/components/schemas/RateSweepOptions"
                                 latency_mode:
                                     type: string
-                                    description: Latency mode string
+                                    description: Latency mode describes how latecy is measured
                                     enum:
                                         - "first_to_last"
                                         - "last_to_last"
@@ -1482,7 +1479,7 @@ components:
                                         - "last_to_first"
                                     example: "first_to_last"
                                 use_relative_to_throughput:
-                                    description: Use relative to throughput
+                                    description: If true, the rate percent will be relative to the throughput rate value derived from the Throughput Test, instead of the the port's maximum speed.
                                     type: boolean
                                     example: true
                             required:
@@ -1497,10 +1494,8 @@ components:
                             description: Frame loss rate test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1521,17 +1516,17 @@ components:
                                     minimum: 0
                                     type: integer
                                     example: 100
-                                use_pass_fail_criteria:
-                                    description: Use pass/fail criteria
+                                use_pass_criteria:
+                                    description: If true, the test will use "pass_criteria_loss" as the pass criteria
                                     type: boolean
                                     example: true
-                                acceptable_loss:
-                                    description: The acceptable loss value
+                                pass_criteria_loss:
+                                    description: The test result will be shown as "Pass" only if the resulting loss value is larger than or equal to the specified value
                                     type: number
                                     example: 1000
-                                acceptable_loss_type:
+                                pass_criteria_loss_type:
                                     type: string
-                                    description: Acceptable loss type
+                                    description: The type of "pass_criteria_loss", either percent of frames
                                     enum:
                                         - "percent"
                                         - "frames"
@@ -1544,18 +1539,16 @@ components:
                                 - use_gap_monitor
                                 - gap_monitor_start_microsec
                                 - gap_monitor_stop_frames
-                                - use_pass_fail_criteria
-                                - acceptable_loss
-                                - acceptable_loss_type
+                                - use_pass_criteria
+                                - pass_criteria_loss
+                                - pass_criteria_loss_type
 
                         back_to_back_test:
                             description: Back-to-back test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1567,12 +1560,12 @@ components:
                                     type: object
                                     properties:
                                         maximum_burst:
-                                            description: Maximum burst size
+                                            description: Maximum value for the binary search of burst size
                                             minimum: 1
                                             type: integer
                                             example: 100000
                                         burst_resolution:
-                                            description: Burst resolution
+                                            description: This value defines the minimum value, the step value, and the resolution value for the binary search of burst size
                                             minimum: 1
                                             type: integer
                                             example: 10
@@ -1698,7 +1691,7 @@ components:
                         - "bps"
                     example: "1e6_bps"
                 inter_frame_gap:
-                    description: Inter-frame gap
+                    description: Inter-frame gap in bytes
                     type: number
                     example: 20
                 speed_reduction_ppm:
@@ -1745,96 +1738,45 @@ components:
                     type: string
                     pattern: "[0-9A-F]{12}"
                     example: "000000000000"
-                ipv4_properties:
-                    description: IPV4 address properties
+                ip_properties:
+                    description: IP address properties
                     type: object
+                    nullable: true
                     properties:
                         address:
                             description: The internal address
-                            default: "0.0.0.0"
                             type: string
-                            format: ipv4
+                            format: ipv4, ipv6
                             example: "0.0.0.0"
                         routing_prefix:
                             description: The internal routing prefix
-                            default: 24
                             type: integer
                             example: 24
                         public_address:
                             description: The address used on the external side of the NAT
-                            default: "0.0.0.0"
                             type: string
-                            format: ipv4
+                            format: ipv4, ipv6
                             example: "0.0.0.0"
                         public_routing_prefix:
                             description: The routing prefix used on the external side of the NAT
-                            default: 24
                             type: integer
                             example: 24
                         gateway:
                             description: The gateway address
-                            default: "0.0.0.0"
                             type: string
-                            format: ipv4
+                            format: ipv4, ipv6
                             example: "0.0.0.0"
                         remote_loop_address:
                             description: The remote loop address
-                            default: "0.0.0.0"
                             type: string
-                            format: ipv4
+                            format: ipv4, ipv6
                             example: "0.0.0.0"
                         ip_version:
-                            description: IP version 4
-                            type: integer
-                            default: 4
+                            description: IP version
                             enum:
                                 - 4
-                            example: 4
-                ipv6_properties:
-                    description: IPV6 address properties
-                    type: object
-                    properties:
-                        address:
-                            description: The internal address
-                            default: "::"
-                            type: string
-                            format: ipv6
-                            example: "::"
-                        routing_prefix:
-                            description: The internal routing prefix
-                            default: 24
-                            type: integer
-                            example: 24
-                        public_address:
-                            description: The address used on the external side of the NAT
-                            default: "::"
-                            type: string
-                            format: ipv6
-                            example: "::"
-                        public_routing_prefix:
-                            description: The routing prefix used on the external side of the NAT
-                            default: 24
-                            type: integer
-                            example: 24
-                        gateway:
-                            description: The gateway address
-                            default: "::"
-                            type: string
-                            format: ipv6
-                            example: "::"
-                        remote_loop_address:
-                            description: The remote loop address
-                            default: "::"
-                            type: string
-                            format: ipv6
-                            example: "::"
-                        ip_version:
-                            description: IP version 6
-                            type: integer
-                            default: 6
-                            enum:
                                 - 6
-                            example: 6
+                            example: 4
             required:
                 - port_slot
                 - peer_config_slot
@@ -1857,8 +1799,7 @@ components:
                 - reply_arp_requests
                 - reply_ping_requests
                 - remote_loop_mac_address
-                - ipv4_properties
-                - ipv6_properties
+                - ip_properties
             
         CommonOptions:
             title: Common Options
@@ -1896,20 +1837,6 @@ components:
                     example: 1
             required:
                 - repetitions
-                - duration_type
-                - duration_unit
-                - duration
-
-        TestType:
-            title: Test Type
-            type: string
-            description: Type of test case enums
-            enum:
-                - "throughput"
-                - "latency"
-                - "loss"
-                - "back_to_back"
-            example: "throughput"
 
         RateSweepOptions:
             title: Rate Sweep Options
