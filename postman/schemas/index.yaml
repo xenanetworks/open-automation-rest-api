@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 
 info:
-    version: "0.4.0"
+    version: "0.4.1"
     title: "Xena OpenAutomation REST API"
     description: XOA REST API for test suite integration with third-party test automation framework
 
@@ -356,19 +356,16 @@ components:
                 - 19
                 - 20
                 - 255
-            example: 5
-        PortId:
-            title: Port ID
-            description: Unique identifier of a port by appending the module index and port index to the tester id
-            type: string
-            pattern: "[0-9a-f]{32}-[0-9]{1}-[0-9]{1}"
-            example: "598e592ceb28ce73b95d270a1b028ff3-0-0"
+            example: 5            
         PortObject:
             title: Port Object
             type: object
             properties:
                 id:
-                    $ref: "#/components/schemas/PortId"
+                    description: Unique identifier of a port by appending the module index and port index to the tester id
+                    type: string
+                    pattern: "[0-9a-f]{32}-[0-9]{1}-[0-9]{1}"
+                    example: "598e592ceb28ce73b95d270a1b028ff3-0-0"
                 index:
                     description: Index of the port
                     type: integer
@@ -483,11 +480,61 @@ components:
                 speed_modes_supported:
                     description: Speed modes supported by the port
                     type: array
+                    minItems: 1
+                    maxItems: 21
                     items:
-                        $ref: "#/components/schemas/PortSpeedModeInt"
+                        type: integer
+                        enum:
+                            - 0
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                            - 6
+                            - 7
+                            - 8
+                            - 9
+                            - 10
+                            - 11
+                            - 12
+                            - 13
+                            - 14
+                            - 15
+                            - 16
+                            - 17
+                            - 18
+                            - 19
+                            - 20
+                            - 255
+                    example: [0,5]
                 speed_mode_current:
                     description: The current speed mode of the port
-                    $ref: "#/components/schemas/PortSpeedModeInt"
+                    type: integer
+                    enum:
+                        - 0
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                        - 6
+                        - 7
+                        - 8
+                        - 9
+                        - 10
+                        - 11
+                        - 12
+                        - 13
+                        - 14
+                        - 15
+                        - 16
+                        - 17
+                        - 18
+                        - 19
+                        - 20
+                        - 255
+                    example: 0
                 speed_current:
                     description: The current port speed in Mbps
                     type: integer
@@ -496,18 +543,16 @@ components:
                     description: The speed reduction in ppm
                     type: integer
                     example: 0
-        ModuleId:
-            title: Module ID
-            description: Unique identifier of a module on a tester by appending the module index to the tester id
-            type: string
-            pattern: "[0-9a-f]{32}-[0-9]{1}"
-            example: "598e592ceb28ce73b95d270a1b028ff3-0"
+            
         ModuleObject:
             title: Module Object
             type: object
             properties:
                 id:
-                    $ref: "#/components/schemas/ModuleId"
+                    description: Unique identifier of a module on a tester by appending the module index to the tester id
+                    type: string
+                    pattern: "[0-9a-f]{32}-[0-9]{1}"
+                    example: "598e592ceb28ce73b95d270a1b028ff3-0"
                 index:
                     description: Index of the module
                     minimum: 0
@@ -524,6 +569,7 @@ components:
                 ports:
                     description: List of ports on a module
                     type: array
+                    minItems: 1
                     items:
                         $ref: "#/components/schemas/PortObject"
                 name:
@@ -586,8 +632,9 @@ components:
                     title: Module List
                     description: List of modules on a tester
                     type: array
+                    minItems: 1
                     items:
-                        $ref: "#/components/schemas/ModulObject"
+                        $ref: "#/components/schemas/ModuleObject"
                 keep_disconnected:
                     description: Should the Worker keep the tester disconnected after reboot
                     type: boolean
@@ -652,6 +699,7 @@ components:
                 port_identities:
                     description: To identify where the ports are physically located
                     type: array
+                    minItems: 1
                     items:
                         $ref: "#/components/schemas/PortIdentity"
                 destination:
@@ -725,32 +773,39 @@ components:
                                         custom_packet_sizes:
                                             description: Custom packet sizes (byte)
                                             type: array
+                                            nullable: true
                                             items:
                                                 type: integer
-                                                example: 256
+                                            example: [256]
                                         fixed_packet_start_size:
                                             description: The start value for fixed packet size (byte)
                                             type: integer
+                                            nullable: true
                                             example: 100
                                         fixed_packet_end_size:
                                             description: The end value for fixed packet size (byte)
                                             type: integer
+                                            nullable: true
                                             example: 500
                                         fixed_packet_step_size:
                                             description: The step value for fixed packet size (byte)
                                             type: integer
+                                            nullable: true
                                             example: 100
                                         varying_packet_min_size:
                                             description: The minimum value for varying packet size (byte)
                                             type: integer
+                                            nullable: true
                                             example: 100
                                         varying_packet_max_size:
                                             description: The maximum value for varying packet size (byte)
                                             type: integer
+                                            nullable: true
                                             example: 1000
                                         mixed_length_config:
                                             description: Mixed length configuration
                                             type: object
+                                            nullable: true
                                             properties:
                                                 field_0:
                                                     description: The packet size value on #0 position
@@ -782,6 +837,7 @@ components:
                                             type: array
                                             minItems: 16
                                             maxItems: 16
+                                            nullable: true
                                             items:
                                                 type: integer
                                                 minimum: 0
@@ -1317,10 +1373,8 @@ components:
                             description: Throughput test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1374,18 +1428,18 @@ components:
                                         - maximum_value_pct
                                         - minimum_value_pct
                                         - value_resolution_pct
-                                use_pass_threshold:
-                                    description: Use pass threshold
+                                use_pass_criteria:
+                                    description: If true, the test will use "pass_criteria_throughput_pct" as the pass criteria
                                     type: boolean
                                     example: false
-                                pass_threshold_pct:
-                                    description: Only if the resulting throughput value is larger than or equal to the threshold
+                                pass_criteria_throughput_pct:
+                                    description: The test result will be shown as "Pass" only if the resulting throughput value (pct) is larger than or equal to the specified value
                                     minimum: 0.0
                                     maximum: 100.0
                                     type: number
                                     example: 100.0
                                 acceptable_loss_pct:
-                                    description: the acceptable loss in percent of the maximum rate
+                                    description: The acceptable loss in percent of the maximum rate used in the binary search to determine if to increase or decrease the searching rate
                                     minimum: 0.0
                                     maximum: 100.0
                                     type: number
@@ -1395,12 +1449,11 @@ components:
                                     type: boolean
                                     example: true
                             required:
-                                - test_type
                                 - enabled
                                 - common_options
                                 - rate_iteration_options
-                                - use_pass_threshold
-                                - pass_threshold_pct
+                                - use_pass_criteria
+                                - pass_criteria_throughput_pct
                                 - acceptable_loss_pct
                                 - collect_latency_jitter
 
@@ -1408,10 +1461,8 @@ components:
                             description: Latency test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1420,7 +1471,7 @@ components:
                                     $ref: "#/components/schemas/RateSweepOptions"
                                 latency_mode:
                                     type: string
-                                    description: Latency mode string
+                                    description: Latency mode describes how latecy is measured
                                     enum:
                                         - "first_to_last"
                                         - "last_to_last"
@@ -1428,7 +1479,7 @@ components:
                                         - "last_to_first"
                                     example: "first_to_last"
                                 use_relative_to_throughput:
-                                    description: Use relative to throughput
+                                    description: If true, the rate percent will be relative to the throughput rate value derived from the Throughput Test, instead of the the port's maximum speed.
                                     type: boolean
                                     example: true
                             required:
@@ -1443,10 +1494,8 @@ components:
                             description: Frame loss rate test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1467,17 +1516,17 @@ components:
                                     minimum: 0
                                     type: integer
                                     example: 100
-                                use_pass_fail_criteria:
-                                    description: Use pass/fail criteria
+                                use_pass_criteria:
+                                    description: If true, the test will use "pass_criteria_loss" as the pass criteria
                                     type: boolean
                                     example: true
-                                acceptable_loss:
-                                    description: The acceptable loss value
+                                pass_criteria_loss:
+                                    description: The test result will be shown as "Pass" only if the resulting loss value is larger than or equal to the specified value
                                     type: number
                                     example: 1000
-                                acceptable_loss_type:
+                                pass_criteria_loss_type:
                                     type: string
-                                    description: Acceptable loss type
+                                    description: The type of "pass_criteria_loss", either percent of frames
                                     enum:
                                         - "percent"
                                         - "frames"
@@ -1490,18 +1539,16 @@ components:
                                 - use_gap_monitor
                                 - gap_monitor_start_microsec
                                 - gap_monitor_stop_frames
-                                - use_pass_fail_criteria
-                                - acceptable_loss
-                                - acceptable_loss_type
+                                - use_pass_criteria
+                                - pass_criteria_loss
+                                - pass_criteria_loss_type
 
                         back_to_back_test:
                             description: Back-to-back test config
                             type: object
                             properties:
-                                test_type:
-                                    $ref: "#/components/schemas/TestType"
                                 enabled:
-                                    description: Enable to use this test
+                                    description: Enable this test from the test suite
                                     type: boolean
                                     example: true
                                 common_options:
@@ -1513,12 +1560,12 @@ components:
                                     type: object
                                     properties:
                                         maximum_burst:
-                                            description: Maximum burst size
+                                            description: Maximum value for the binary search of burst size
                                             minimum: 1
                                             type: integer
                                             example: 100000
                                         burst_resolution:
-                                            description: Burst resolution
+                                            description: This value defines the minimum value, the step value, and the resolution value for the binary search of burst size
                                             minimum: 1
                                             type: integer
                                             example: 10
@@ -1566,9 +1613,40 @@ components:
                     type: integer
                     example: 1
                 port_group:
-                    $ref: "#/components/schemas/PortGroup"
+                    type: string
+                    description: Port group
+                    enum:
+                        - "east"
+                        - "west"
+                        - "undefined"
+                    example: "east"
                 port_speed_mode:
-                    $ref: "#/components/schemas/PortSpeedModeStr"
+                    type: string
+                    description: Port speed mode (str)
+                    enum:
+                        - "auto"
+                        - "f100m"
+                        - "f1g"
+                        - "f2500m"
+                        - "f5g"
+                        - "f10g"
+                        - "f100m1g"
+                        - "f100m1g2500m"
+                        - "f10m"
+                        - "f40g"
+                        - "f100g"
+                        - "f10mhdx"
+                        - "f100mhdx"
+                        - "f10m100m"
+                        - "f100m1g10g"
+                        - "f25g"
+                        - "f50g"
+                        - "f200g"
+                        - "f400g"
+                        - "f800g"
+                        - "f1600g"
+                        - "unknown"
+                    example: "auto"
                 auto_neg_enabled:
                     description: Auto-neg enabled
                     type: boolean
@@ -1578,19 +1656,42 @@ components:
                     type: boolean
                     example: false
                 mdi_mdix_mode:
-                    $ref: "#/components/schemas/MdiMdixMode"
+                    type: string
+                    description: MDI/MDIX mode
+                    enum:
+                        - "auto"
+                        - "mdi"
+                        - "mdix"
+                    example: "auto"
                 broadr_reach_mode:
-                    $ref: "#/components/schemas/BRRMode"
+                    type: string
+                    description: BroadR-Reach mode
+                    enum:
+                        - "master"
+                        - "slave"
+                    example: "master"
                 port_rate_cap_value:
                     description: Port rate cap value
                     type: number
                     example: 1000
                 port_rate_cap_profile:
-                    $ref: "#/components/schemas/PortRateCapProfile"
+                    type: string
+                    description: Port rate cap profile
+                    enum:
+                        - "physical_port_rate"
+                        - "custom_rate_cap"
+                    example: "physical_port_rate"
                 port_rate_cap_unit:
-                    $ref: "#/components/schemas/PortRateCapUnit"
+                    type: string
+                    description: Port rate cap unit
+                    enum:
+                        - "1e9_bps"
+                        - "1e6_bps"
+                        - "1e3_bps"
+                        - "bps"
+                    example: "1e6_bps"
                 inter_frame_gap:
-                    description: Inter-frame gap
+                    description: Inter-frame gap in bytes
                     type: number
                     example: 20
                 speed_reduction_ppm:
@@ -1607,7 +1708,13 @@ components:
                     type: integer
                     example: 100
                 fec_mode:
-                    $ref: "#/components/schemas/FECMode"
+                    type: string
+                    description: FEC mode
+                    enum:
+                        - "on"
+                        - "off"
+                        - "fc_fec"
+                    example: "on"
                 protocol_segment_profile_id:
                     description: Protocl segment profile ID used by the port
                     type: string
@@ -1631,10 +1738,45 @@ components:
                     type: string
                     pattern: "[0-9A-F]{12}"
                     example: "000000000000"
-                ipv4_properties:
-                    $ref: "#/components/schemas/IPV4AddressProperties"
-                ipv6_properties:
-                    $ref: "#/components/schemas/IPV6AddressProperties"
+                ip_properties:
+                    description: IP address properties
+                    type: object
+                    nullable: true
+                    properties:
+                        address:
+                            description: The internal address
+                            type: string
+                            format: ipv4, ipv6
+                            example: "0.0.0.0"
+                        routing_prefix:
+                            description: The internal routing prefix
+                            type: integer
+                            example: 24
+                        public_address:
+                            description: The address used on the external side of the NAT
+                            type: string
+                            format: ipv4, ipv6
+                            example: "0.0.0.0"
+                        public_routing_prefix:
+                            description: The routing prefix used on the external side of the NAT
+                            type: integer
+                            example: 24
+                        gateway:
+                            description: The gateway address
+                            type: string
+                            format: ipv4, ipv6
+                            example: "0.0.0.0"
+                        remote_loop_address:
+                            description: The remote loop address
+                            type: string
+                            format: ipv4, ipv6
+                            example: "0.0.0.0"
+                        ip_version:
+                            description: IP version
+                            enum:
+                                - 4
+                                - 6
+                            example: 4
             required:
                 - port_slot
                 - peer_config_slot
@@ -1657,189 +1799,8 @@ components:
                 - reply_arp_requests
                 - reply_ping_requests
                 - remote_loop_mac_address
-                - ipv4_properties
-                - ipv6_properties
-
-        PortGroup:
-            title: Port Group
-            type: string
-            description: Port group
-            enum:
-                - "east"
-                - "west"
-                - "undefined"
-            example: "east"
-
-        PortSpeedModeStr:
-            title: Port Speed Mode (String)
-            type: string
-            description: Port speed mode (str)
-            enum:
-                - "auto"
-                - "f100m"
-                - "f1g"
-                - "f2500m"
-                - "f5g"
-                - "f10g"
-                - "f100m1g"
-                - "f100m1g2500m"
-                - "f10m"
-                - "f40g"
-                - "f100g"
-                - "f10mhdx"
-                - "f100mhdx"
-                - "f10m100m"
-                - "f100m1g10g"
-                - "f25g"
-                - "f50g"
-                - "f200g"
-                - "f400g"
-                - "f800g"
-                - "f1600g"
-                - "unknown"
-            example: "auto"
-        
-        MdiMdixMode:
-            title: MDI/MDIX Mode
-            type: string
-            description: MDI/MDIX mode
-            enum:
-                - "auto"
-                - "mdi"
-                - "mdix"
-            example: "auto"
-
-        BRRMode:
-            title: BRR Mode
-            type: string
-            description: BroadR-Reach mode
-            enum:
-                - "master"
-                - "slave"
-            example: "master"
-
-        PortRateCapProfile:
-            title: Port Rate Cap Profile
-            type: string
-            description: Port rate cap profile
-            enum:
-                - "physical_port_rate"
-                - "custom_rate_cap"
-            example: "physical_port_rate"
-
-        PortRateCapUnit:
-            title: Port Rate Cap Unit
-            type: string
-            description: Port rate cap unit
-            enum:
-                - "1e9_bps"
-                - "1e6_bps"
-                - "1e3_bps"
-                - "bps"
-            example: "1e6_bps"
-
-        FECMode:
-            title: FEC Mode
-            type: string
-            description: FEC mode
-            enum:
-                - "on"
-                - "off"
-                - "fc_fec"
-            example: "on"
-
-        IPV4AddressProperties:
-            title: IPV4 Address Properties
-            type: object
-            properties:
-                address:
-                    description: The internal address
-                    default: "0.0.0.0"
-                    type: string
-                    format: ipv4
-                    example: "0.0.0.0"
-                routing_prefix:
-                    description: The internal routing prefix
-                    default: 24
-                    type: integer
-                    example: 24
-                public_address:
-                    description: The address used on the external side of the NAT
-                    default: "0.0.0.0"
-                    type: string
-                    format: ipv4
-                    example: "0.0.0.0"
-                public_routing_prefix:
-                    description: The routing prefix used on the external side of the NAT
-                    default: 24
-                    type: integer
-                    example: 24
-                gateway:
-                    description: The gateway address
-                    default: "0.0.0.0"
-                    type: string
-                    format: ipv4
-                    example: "0.0.0.0"
-                remote_loop_address:
-                    description: The remote loop address
-                    default: "0.0.0.0"
-                    type: string
-                    format: ipv4
-                    example: "0.0.0.0"
-                ip_version:
-                    description: IP version 4
-                    type: integer
-                    default: 4
-                    enum:
-                        - 4
-                    example: 4
-
-        IPV6AddressProperties:
-            title: IPV6 Address Properties
-            type: object
-            properties:
-                address:
-                    description: The internal address
-                    default: "::"
-                    type: string
-                    format: ipv6
-                    example: "::"
-                routing_prefix:
-                    description: The internal routing prefix
-                    default: 24
-                    type: integer
-                    example: 24
-                public_address:
-                    description: The address used on the external side of the NAT
-                    default: "::"
-                    type: string
-                    format: ipv6
-                    example: "::"
-                public_routing_prefix:
-                    description: The routing prefix used on the external side of the NAT
-                    default: 24
-                    type: integer
-                    example: 24
-                gateway:
-                    description: The gateway address
-                    default: "::"
-                    type: string
-                    format: ipv6
-                    example: "::"
-                remote_loop_address:
-                    description: The remote loop address
-                    default: "::"
-                    type: string
-                    format: ipv6
-                    example: "::"
-                ip_version:
-                    description: IP version 6
-                    type: integer
-                    default: 6
-                    enum:
-                        - 6
-                    example: 6
-
+                - ip_properties
+            
         CommonOptions:
             title: Common Options
             type: object
@@ -1876,20 +1837,6 @@ components:
                     example: 1
             required:
                 - repetitions
-                - duration_type
-                - duration_unit
-                - duration
-
-        TestType:
-            title: Test Type
-            type: string
-            description: Type of test case enums
-            enum:
-                - "throughput"
-                - "latency"
-                - "loss"
-                - "back_to_back"
-            example: "throughput"
 
         RateSweepOptions:
             title: Rate Sweep Options
