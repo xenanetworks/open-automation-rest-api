@@ -698,14 +698,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/:api_version/test",
+							"raw": "{{baseUrl}}/api/:api_version/tests",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								":api_version",
-								"test"
+								"tests"
 							],
 							"variable": [
 								{
@@ -775,14 +775,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/:api_version/test/:test_id",
+							"raw": "{{baseUrl}}/api/:api_version/tests/:test_id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								":api_version",
-								"test",
+								"tests",
 								":test_id"
 							],
 							"variable": [
@@ -855,14 +855,14 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/:api_version/test/:test_id",
+							"raw": "{{baseUrl}}/api/:api_version/tests/:test_id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								":api_version",
-								"test",
+								"tests",
 								":test_id"
 							],
 							"variable": [
