@@ -75,14 +75,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/TesterId"
-                "202":
-                    description: Tester Already Added
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/TesterId"
                 "422":
-                    description: Bad Tester Information
+                    description: Tester Not Found
             requestBody:
                 content:
                     application/json:
@@ -108,6 +102,8 @@ paths:
             responses:
                 "200":
                     description: Tester Removed
+                "422":
+                    description: Unknown Tester ID
 
     /api/{{api_version}}/testers/{{tester_id}}/control:
         parameters:
@@ -128,11 +124,15 @@ paths:
             responses:
                 "200":
                     description: Tester Connected
+                "422":
+                    description: Tester Already Connected or Unknown Tester ID
         delete:
             summary: Disconnect Tester
             responses:
                 "200":
                     description: Tester Disconnected
+                "422":
+                    description: Unknown Tester ID
 
     /api/{{api_version}}/tests:
         parameters:
