@@ -244,17 +244,7 @@ components:
         SubscriptionInfo:
             type: object
             properties:
-                worker_id:
-                    $ref: "#/components/schemas/WorkerId"
-                sender_id:
-                    $ref: "#/components/schemas/SenderId"
-                service_name:
-                    type: string
-                    enum:
-                        - "alerts"
-                        - "resources"
-                    example: "alerts"
-                destination:
+                destination_host:
                     type: string
                     description: The URL of the endpoint to receive the push messages
                     format: url
